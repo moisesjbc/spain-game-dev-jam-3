@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 export (int) var movement_speed = 500
+export var hp = 3
 
 
 func _physics_process(delta):
@@ -26,3 +27,8 @@ func _process_player_movement(delta):
 
 func _process_player_rotation():
 	look_at(get_global_mouse_position())
+
+
+func damage():
+	hp -= 1
+	print('damage! new hp', hp)
