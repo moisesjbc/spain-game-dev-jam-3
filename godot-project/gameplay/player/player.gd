@@ -48,12 +48,14 @@ func _process_player_actions():
 					add_child(cable_roll)
 					cable_roll.global_position = global_position
 					cable_roll.rotation = rotation
+					cable_roll.get_node('sprite').visible = false
 		elif !len(close_buildings) and $cable_roll and $cable_roll.throwing_cable:
 			var cable_roll = $cable_roll
 			remove_child(cable_roll)
 			get_parent().add_child(cable_roll)
 			cable_roll.global_position = global_position
 			cable_roll.rotation = rotation
+			cable_roll.get_node('sprite').visible = true
 			
 			
 			
@@ -82,7 +84,6 @@ func damage():
 
 func _on_influence_area_body_entered(body):
 	if 'buildings' in body.get_groups() and !get_node(body.name):
-		print('adding', body.name)
 		close_buildings.append(body)
 
 
