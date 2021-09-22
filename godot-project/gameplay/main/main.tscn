@@ -9,7 +9,7 @@
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 169, 349 )
+position = Vector2( 871.969, 437.781 )
 
 [node name="gun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 790, 202 )
