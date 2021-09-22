@@ -1,0 +1,41 @@
+nombre: DECIDIR
+situacion: "Tira-cable" que tenía mucho cable sobrante en su casa y tiene que sobrevivir al apocalipsis zombie.
+objetivo: desarrollar una cura (edificio de investigación)
+condiciones de derrota:
+    - Muerte del jugador
+mechanics:
+    - Zombies van apareciendo en los extremos del mapa y avanzan aleatoriamente hacia el jugador o hacia los edificios (esto último fuerza al jugador a moverse y no hacerse fuerte alrededor del edificio de investigación).
+    - Zombies hacen daño al jugador / edificio por el contacto.
+    - Hay edificios abandonados por el mapa (distribución aleatoria):
+        - Fábrica de torretas.
+        - Edificio de investigación.
+        - Molinos de viento.
+    - El jugador no tiene armas.
+    - El jugador tiene una gran bobina de cable en su casa (¿o lo lleva encima?)
+    - Acciones del jugador sin nada:
+        - Conectar cable (si está cerca de un edificio) -> estado "tirando cable"
+        - Recoger torreta (si está cerca de la fábrica de torretas y hay stock) -> estado "llevando torreta"
+    - Acciones del jugador tirando cable:
+        - Atacar zombies (si tiene un extremo del cable conectado al generador)
+        - Conectar a edificio (si está cerca de un edificio).
+        - Desconectar (si está cerca del edificio que está conectado al cable).
+        - Limitado en movimiento según tamaño de la bobina.
+            - ¿Alternivas si el jugador está lejos del otro extremo del cable y no le llega al destino?
+                - ¿Soltar el cable?
+                - ¿Forzarlo a volver
+    - Accciones del jugador llevando torreta:
+        - Soltar torreta.
+
+Cajón de sastre: |>
+    - Puede que hayan zombies atacando tanto los distintos edificios como que aleatoriamente ataquen segmentos del cable.
+    - Cuando los conectas puedes ir a tu base para consultar las peticiones / reportes que te envían, o consultarlo directamente en cada edificio.
+    - Lo que se puede tirar puede ser cable de electricidad, y la central tiene una capacidad limitada. O tú sólo tiras cable, y hay edificios que la producen y edificios que no. Se pueden conectar los edificios entre sí y/o con tu casa. Se pierde si...
+    - ¿Llegan y destruyen tu edificio?
+    - ¿Mueres de hambre (edificio que prepara comida)?
+    - ¿Otra condición?
+    - Torretas (fábrica de torretas) + sensores (marca en el minimapa)
+    - Al tirar cable de uno a otro pues se puede mirar:
+      - Probabilidad de rotura
+      - Pérdida de señal (distancia y calidad del cable
+      - Al tirar cable puedes, o dejar un sobrante que te permite mover el edificio en un rango sin problemas (aunque tienes lo de perder más intensidad) o poner lo justo pero si quieres moverlo tienes que desenchufar y empatar.
+
