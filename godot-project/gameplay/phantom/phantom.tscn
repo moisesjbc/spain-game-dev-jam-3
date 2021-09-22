@@ -7,6 +7,7 @@
 extents = Vector2( 31.9269, 31.9269 )
 
 [node name="phantom" type="KinematicBody2D" groups=[
+"buildings",
 "phantoms",
 ]]
 collision_layer = 2

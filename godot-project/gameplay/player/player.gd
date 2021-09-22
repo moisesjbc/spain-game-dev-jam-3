@@ -4,7 +4,7 @@ extends KinematicBody2D
 export (int) var movement_speed = 500
 export var hp = 3
 
-var close_generator = null
+var close_buildings = []
 
 
 func _physics_process(delta):
@@ -34,15 +34,36 @@ func _process_player_rotation():
 	
 func _process_player_actions():
 	if Input.is_action_just_pressed('ui_action'):
-		if close_generator and $cable_roll:
-			$cable_roll.start_throwing(close_generator)
-		elif $cable_roll and $cable_roll.throwing_cable:
+		if len(close_buildings) and $cable_roll:
+			if not $cable_roll.throwing_cable:
+				$cable_roll.start_throwing(_get_closest_building())
+			else:
+				$cable_roll.connect_to(_get_closest_building(), get_parent().get_node('connections'))
+		elif !len(close_buildings) and $cable_roll and $cable_roll.throwing_cable:
 			var cable_roll = $cable_roll
 			remove_child(cable_roll)
 			get_parent().add_child(cable_roll)
 			cable_roll.global_position = global_position
 			cable_roll.rotation = rotation
-
+			
+			
+func _get_closest_building():
+	var n_close_buildings = len(close_buildings)
+	if n_close_buildings == 0:
+		return null
+	elif n_close_buildings == 1:
+		return close_buildings[0]
+	else:
+		var closest_building = close_buildings[0]
+		var closest_distance = global_position.distance_to(close_buildings[0].global_position)
+		for current_index in range(1, n_close_buildings):
+			var distance = global_position.distance_to(close_buildings[current_index].global_position)
+			if distance < closest_distance:
+				closest_building = close_buildings[current_index]
+				closest_distance = distance
+		return closest_building
+			
+	
 
 func damage():
 	hp -= 1
@@ -50,10 +71,12 @@ func damage():
 
 
 func _on_influence_area_body_entered(body):
-	if 'generators' in body.get_groups():
-		close_generator = body
+	if 'buildings' in body.get_groups():
+		close_buildings.append(body)
 
 
 func _on_influence_area_body_exited(body):
-	if 'generators' in body.get_groups():
-		close_generator = null
+	if 'buildings' in body.get_groups():
+		var index = close_buildings.find(body)
+		if index >= 0:
+			close_buildings.remove(index)

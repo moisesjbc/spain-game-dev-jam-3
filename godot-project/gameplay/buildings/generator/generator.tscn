@@ -6,6 +6,7 @@
 extents = Vector2( 31.347, 31.8228 )
 
 [node name="generator" type="KinematicBody2D" groups=[
+"buildings",
 "generators",
 ]]
 collision_layer = 4
