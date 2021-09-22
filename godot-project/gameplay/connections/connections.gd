@@ -5,6 +5,11 @@ var _connections = []
 
 func add_connection(building_0, building_1):
 	_connections.append([building_0, building_1])
+	if 'generators' in building_0.get_groups() and 'turrets' in building_1.get_groups():
+		building_1.set_energy(1)
+	elif 'generators' in building_1.get_groups() and 'turrets' in building_0.get_groups():
+		building_0.set_energy(1)
+		 
 
 
 func _physics_process(_delta):
