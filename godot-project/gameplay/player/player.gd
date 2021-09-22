@@ -35,7 +35,7 @@ func _process_player_rotation():
 func _process_player_actions():
 	if Input.is_action_just_pressed('ui_action'):
 		if len(close_buildings):
-			if get_node("cable_roll"):
+			if get_node_or_null("cable_roll"):
 				if not $cable_roll.throwing_cable:
 					$cable_roll.start_throwing(_get_closest_building())
 				else:
@@ -83,7 +83,7 @@ func damage():
 
 
 func _on_influence_area_body_entered(body):
-	if 'buildings' in body.get_groups() and !get_node(body.name):
+	if 'buildings' in body.get_groups() and !get_node_or_null(body.name):
 		close_buildings.append(body)
 
 
