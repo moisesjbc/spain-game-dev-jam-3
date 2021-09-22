@@ -14,11 +14,11 @@ texture = ExtResource( 1 )
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 169, 349 )
 
-[node name="phantom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 491, 351 )
-
 [node name="gun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 790, 202 )
 
 [node name="phantom2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 602, 501 )
+
+[node name="phantom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 523.924, 48.7216 )

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var target = get_tree().get_root().get_node("main/player")
-export (int) var movement_speed = 250
+export (int) var movement_speed = 100
 
 
 func _physics_process(delta):
