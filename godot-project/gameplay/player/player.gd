@@ -34,17 +34,27 @@ func _process_player_rotation():
 	
 func _process_player_actions():
 	if Input.is_action_just_pressed('ui_action'):
-		if len(close_buildings) and $cable_roll:
-			if not $cable_roll.throwing_cable:
-				$cable_roll.start_throwing(_get_closest_building())
+		if len(close_buildings):
+			if get_node("cable_roll"):
+				if not $cable_roll.throwing_cable:
+					$cable_roll.start_throwing(_get_closest_building())
+				else:
+					$cable_roll.connect_to(_get_closest_building(), get_parent().get_node('connections'))
 			else:
-				$cable_roll.connect_to(_get_closest_building(), get_parent().get_node('connections'))
+				var closest_building = _get_closest_building()
+				if closest_building.name == 'cable_roll':
+					var cable_roll = closest_building
+					get_parent().remove_child(cable_roll)
+					add_child(cable_roll)
+					cable_roll.global_position = global_position
+					cable_roll.rotation = rotation
 		elif !len(close_buildings) and $cable_roll and $cable_roll.throwing_cable:
 			var cable_roll = $cable_roll
 			remove_child(cable_roll)
 			get_parent().add_child(cable_roll)
 			cable_roll.global_position = global_position
 			cable_roll.rotation = rotation
+			
 			
 			
 func _get_closest_building():
@@ -71,7 +81,8 @@ func damage():
 
 
 func _on_influence_area_body_entered(body):
-	if 'buildings' in body.get_groups():
+	if 'buildings' in body.get_groups() and !get_node(body.name):
+		print('adding', body.name)
 		close_buildings.append(body)
 
 
