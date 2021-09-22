@@ -61,6 +61,7 @@ ui_action={
 2d_physics/layer_2="Phantoms"
 2d_physics/layer_3="Buildings"
 2d_physics/layer_4="Bullets"
+2d_physics/layer_5="Cable roll"
 
 [rendering]
 

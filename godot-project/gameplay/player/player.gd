@@ -33,9 +33,15 @@ func _process_player_rotation():
 	
 	
 func _process_player_actions():
-	if close_generator and Input.is_action_just_pressed('ui_action'):
-		print('Cable!')
-		
+	if Input.is_action_just_pressed('ui_action'):
+		if close_generator and $cable_roll:
+			$cable_roll.start_throwing(close_generator)
+		elif $cable_roll and $cable_roll.throwing_cable:
+			var cable_roll = $cable_roll
+			remove_child(cable_roll)
+			get_parent().add_child(cable_roll)
+			cable_roll.global_position = global_position
+			cable_roll.rotation = rotation
 
 
 func damage():
@@ -44,7 +50,6 @@ func damage():
 
 
 func _on_influence_area_body_entered(body):
-	print(body.get_groups())
 	if 'generators' in body.get_groups():
 		close_generator = body
 
