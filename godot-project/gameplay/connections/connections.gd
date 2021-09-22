@@ -7,7 +7,7 @@ func add_connection(building_0, building_1):
 	_connections.append([building_0, building_1])
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	update()
 
 
