@@ -7,4 +7,11 @@
 script = ExtResource( 2 )
 
 [node name="body_sprite" type="Sprite" parent="."]
+rotation = 1.5708
+texture = ExtResource( 1 )
+
+[node name="aim_sprite" type="Sprite" parent="."]
+position = Vector2( 50, 0 )
+rotation = 1.5708
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )

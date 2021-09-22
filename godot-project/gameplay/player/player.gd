@@ -6,6 +6,7 @@ export (int) var movement_speed = 500
 
 func _physics_process(delta):
 	_process_player_movement(delta)
+	_process_player_rotation()
 
 
 func _process_player_movement(delta):
@@ -21,3 +22,7 @@ func _process_player_movement(delta):
 		velocity.x += 1
 
 	var _result = move_and_collide(velocity * movement_speed * delta)
+
+
+func _process_player_rotation():
+	look_at(get_global_mouse_position())
