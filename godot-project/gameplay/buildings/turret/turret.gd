@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 var targets_in_area = []
 var bullet_scene = preload("res://gameplay/items/bullet/bullet.tscn")
@@ -32,8 +32,6 @@ func _physics_process(_delta):
 
 func _prepare_shoot():
 	var shoot_charging_timeout = min_shoot_charging_timeout + (1.0 - (energy / max_energy)) * (max_shoot_charging_timeout - min_shoot_charging_timeout)
-	print('enery', energy)
-	print('shoot_charging_timeout', shoot_charging_timeout)
 	
 	look_at(targets_in_area[0].global_position)
 	$shoot_charging_timer.start(shoot_charging_timeout)
@@ -56,7 +54,6 @@ func _on_shoot_charging_timer_timeout():
 
 
 func set_energy(new_energy):
-	print('new_energy', new_energy)
 	energy = new_energy
 	if energy < 0.2:
 		$shoot_charging_timer.stop()

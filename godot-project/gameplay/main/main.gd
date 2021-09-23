@@ -9,6 +9,7 @@ func _ready():
 	_respawn_buildings("res://gameplay/buildings/turret/turret.tscn", n_turrets)
 	_respawn_buildings("res://gameplay/buildings/investigation_centre/investigation_centre.tscn", 1)
 
+
 func _on_player_player_died():
 	$gui/ingame_menu.display(Types.IngameMenu.GAME_OVER)
 

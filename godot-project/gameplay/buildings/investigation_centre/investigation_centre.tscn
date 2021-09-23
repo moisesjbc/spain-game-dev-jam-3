@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/buildings/investigation_centre/investigation_centre.gd" type="Script" id=2]
+[ext_resource path="res://gameplay/gui/building_menu/building_menu.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.9167, 32.0385 )
 
 [node name="investigation_centre" type="StaticBody2D" groups=[
+"buildings",
 "consumers",
 "interactuables",
 ]]
@@ -34,4 +36,7 @@ __meta__ = {
 [node name="investigation_timer" type="Timer" parent="." groups=[
 "interactuables",
 ]]
+
+[node name="building_menu" parent="." instance=ExtResource( 3 )]
+position = Vector2( -26.4583, -79.69 )
 [connection signal="timeout" from="investigation_timer" to="." method="_on_investigation_timer_timeout"]

@@ -73,7 +73,13 @@ func damage():
 
 func _on_influence_area_body_entered(body):
 	if 'interactuables' in body.get_groups() and !get_node_or_null(body.name):
+		var building_menu = body.get_node_or_null('building_menu')
+		if not building_menu:
+			building_menu = body.get_parent().get_node_or_null('building_menu')
 		close_interactuables.append(body)
+		if building_menu:
+			building_menu.open(self, get_parent().get_node('connections'))
+			
 
 
 func _on_influence_area_body_exited(body):
@@ -81,3 +87,9 @@ func _on_influence_area_body_exited(body):
 		var index = close_interactuables.find(body)
 		if index >= 0:
 			close_interactuables.remove(index)
+		
+		var building_menu = body.get_node_or_null('building_menu')
+		if not building_menu:
+			building_menu = body.get_parent().get_node_or_null('building_menu')
+		if building_menu:
+			building_menu.close()
