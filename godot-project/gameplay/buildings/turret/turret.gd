@@ -4,6 +4,7 @@ var targets_in_area = []
 var bullet_scene = preload("res://gameplay/items/bullet/bullet.tscn")
 var shoot_charging_timeout = 1
 var energy = 0
+var max_energy = 5
 
 
 func _on_influence_area_body_entered(body):

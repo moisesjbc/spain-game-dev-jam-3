@@ -4,12 +4,11 @@ extends StaticBody2D
 signal investigation_completed
 
 
-
-
 var target_investigation_points = 100.0
 var current_investigation_points = 0.0
 var investigation_points_per_second = 5.0
 var energy = 0
+var max_energy = 3
 
 
 func _ready():
