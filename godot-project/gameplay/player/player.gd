@@ -4,7 +4,7 @@ extends KinematicBody2D
 export (int) var movement_speed = 500
 export var hp = 3
 
-var close_buildings = []
+var close_interactuables = []
 
 
 func _physics_process(delta):
@@ -34,22 +34,22 @@ func _process_player_rotation():
 	
 func _process_player_actions():
 	if Input.is_action_just_pressed('ui_action'):
-		if len(close_buildings):
+		if len(close_interactuables):
 			if get_node_or_null("cable_roll"):
 				if not $cable_roll.throwing_cable:
-					$cable_roll.start_throwing(_get_closest_building())
+					$cable_roll.start_throwing(_get_closest_interactuable())
 				else:
-					$cable_roll.connect_to(_get_closest_building(), get_parent().get_node('connections'))
+					$cable_roll.connect_to(_get_closest_interactuable(), get_parent().get_node('connections'))
 			else:
-				var closest_building = _get_closest_building()
-				if closest_building.name == 'cable_roll':
-					var cable_roll = closest_building
+				var closest_interactuable = _get_closest_interactuable()
+				if closest_interactuable.name == 'cable_roll':
+					var cable_roll = closest_interactuable
 					get_parent().remove_child(cable_roll)
 					add_child(cable_roll)
 					cable_roll.global_position = global_position
 					cable_roll.rotation = rotation
 					cable_roll.get_node('sprite').visible = false
-		elif !len(close_buildings) and $cable_roll and $cable_roll.throwing_cable:
+		elif !len(close_interactuables) and $cable_roll and $cable_roll.throwing_cable:
 			var cable_roll = $cable_roll
 			remove_child(cable_roll)
 			get_parent().add_child(cable_roll)
@@ -59,21 +59,21 @@ func _process_player_actions():
 			
 			
 			
-func _get_closest_building():
-	var n_close_buildings = len(close_buildings)
-	if n_close_buildings == 0:
+func _get_closest_interactuable():
+	var n_close_interactuables = len(close_interactuables)
+	if n_close_interactuables == 0:
 		return null
-	elif n_close_buildings == 1:
-		return close_buildings[0]
+	elif n_close_interactuables == 1:
+		return close_interactuables[0]
 	else:
-		var closest_building = close_buildings[0]
-		var closest_distance = global_position.distance_to(close_buildings[0].global_position)
-		for current_index in range(1, n_close_buildings):
-			var distance = global_position.distance_to(close_buildings[current_index].global_position)
+		var closest_interactuable = close_interactuables[0]
+		var closest_distance = global_position.distance_to(close_interactuables[0].global_position)
+		for current_index in range(1, n_close_interactuables):
+			var distance = global_position.distance_to(close_interactuables[current_index].global_position)
 			if distance < closest_distance:
-				closest_building = close_buildings[current_index]
+				closest_interactuable = close_interactuables[current_index]
 				closest_distance = distance
-		return closest_building
+		return closest_interactuable
 			
 	
 
@@ -83,12 +83,12 @@ func damage():
 
 
 func _on_influence_area_body_entered(body):
-	if 'buildings' in body.get_groups() and !get_node_or_null(body.name):
-		close_buildings.append(body)
+	if 'interactuables' in body.get_groups() and !get_node_or_null(body.name):
+		close_interactuables.append(body)
 
 
 func _on_influence_area_body_exited(body):
-	if 'buildings' in body.get_groups():
-		var index = close_buildings.find(body)
+	if 'interactuables' in body.get_groups():
+		var index = close_interactuables.find(body)
 		if index >= 0:
-			close_buildings.remove(index)
+			close_interactuables.remove(index)
