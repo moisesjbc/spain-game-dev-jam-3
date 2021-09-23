@@ -41,15 +41,19 @@ func _draw():
 
 func disconnect_connection(connection):
 	if 'generators' in connection[0].get_groups():
+		connection[0].consumed_energy = 0
 		_generators.remove(_generators.find(connection[0]))
 	elif 'generators' in connection[1].get_groups():
+		connection[1].consumed_energy = 0
 		_generators.remove(_generators.find(connection[1]))
 		
 	if 'consumers' in connection[0].get_groups():
-		_consumers.remove(_generators.find(connection[0]))
+		connection[0].set_energy(0)
+		_consumers.remove(_consumers.find(connection[0]))
 	elif 'consumers' in connection[1].get_groups():
-		_consumers.remove(_generators.find(connection[1]))
-		
+		connection[1].set_energy(0)
+		_consumers.remove(_consumers.find(connection[1]))
+
 	_connections.remove(_connections.find(connection))
 	
 	_compute_energy()
@@ -68,10 +72,11 @@ func _compute_energy():
 		var connected_consumers = _get_connected_consumers(generator, [])
 		
 		if len(connected_consumers):
-			var available_energy = generator.total_energy
+			var available_energy = float(generator.total_energy)
 			var consumers_requiring_energy = [] + connected_consumers
 			
-			while available_energy and len(consumers_requiring_energy):
+			
+			while available_energy > 0.5 and len(consumers_requiring_energy):
 				var current_consumers = [] + consumers_requiring_energy
 				consumers_requiring_energy = []
 				
@@ -93,8 +98,6 @@ func _compute_energy():
 						else:
 							available_energy -= energy_per_consumer - (current_consumer.max_energy - energies[current_consumer.name])
 							energies[current_consumer.name] += current_consumer.max_energy - energies[current_consumer.name]
-				
-			print('energiers ', energies)
 			
 			for consumer in _consumers:
 				if energies.has(consumer.name):

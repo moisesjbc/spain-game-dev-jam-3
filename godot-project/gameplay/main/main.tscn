@@ -48,5 +48,20 @@ visible = false
 
 [node name="investigation_centre" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1277.21, 658.821 )
+
+[node name="turret2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 196.001, 262.747 )
+
+[node name="turret3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 9.53516, 214.012 )
+
+[node name="turret4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 323.136, 113.363 )
+
+[node name="turret5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 229.904, -62.5083 )
+
+[node name="turret6" parent="." instance=ExtResource( 4 )]
+position = Vector2( -36.0218, -45.5569 )
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
 [connection signal="investigation_completed" from="investigation_centre" to="." method="_on_investigation_centre_investigation_completed"]
