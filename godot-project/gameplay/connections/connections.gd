@@ -44,7 +44,6 @@ func get_closest_point_and_distance(ref_position):
 
 
 func generate_intermediate_points(building_0, building_1):
-	var distance = building_0.global_position.distance_to(building_1.global_position)
 	var n_points = 5
 	var segment_size = (building_1.global_position - building_0.global_position) / n_points
 	var points = []

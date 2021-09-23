@@ -19,7 +19,7 @@ func _on_investigation_centre_investigation_completed():
 
 func _respawn_buildings(building_scene_path, n_buildings):
 	var building_scene = load(building_scene_path)
-	for i in range(0, n_buildings):
+	for _i in range(0, n_buildings):
 		var building = building_scene.instance()
 		building.global_position = $interactuables_respawn.get_building_respawn_position()
 		add_child(building)
