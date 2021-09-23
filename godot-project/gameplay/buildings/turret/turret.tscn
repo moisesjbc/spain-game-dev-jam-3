@@ -10,6 +10,7 @@ extents = Vector2( 28.3506, 28.4515 )
 radius = 168.675
 
 [node name="turret" type="KinematicBody2D" groups=[
+"consumers",
 "interactuables",
 "turrets",
 ]]

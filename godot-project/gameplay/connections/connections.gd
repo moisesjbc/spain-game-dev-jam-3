@@ -5,9 +5,9 @@ var _connections = []
 
 func add_connection(building_0, building_1):
 	_connections.append([building_0, building_1])
-	if 'generators' in building_0.get_groups() and 'turrets' in building_1.get_groups():
+	if 'generators' in building_0.get_groups() and 'consumers' in building_1.get_groups():
 		building_1.set_energy(1)
-	elif 'generators' in building_1.get_groups() and 'turrets' in building_0.get_groups():
+	elif 'generators' in building_1.get_groups() and 'consumers' in building_0.get_groups():
 		building_0.set_energy(1)
 
 
@@ -31,9 +31,9 @@ func _draw():
 
 
 func disconnect_connection(connection):
-	if 'generators' in connection[0].get_groups() and 'turrets' in connection[1].get_groups():
+	if 'generators' in connection[0].get_groups() and 'consumers' in connection[1].get_groups():
 		connection[1].set_energy(0)
-	elif 'generators' in connection[1].get_groups() and 'turrets' in connection[0].get_groups():
+	elif 'generators' in connection[1].get_groups() and 'consumers' in connection[0].get_groups():
 		connection[0].set_energy(0)
 		
 	_connections.remove(_connections.find(connection))

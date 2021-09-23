@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.9167, 32.0385 )
 
-[node name="investigation_centre" type="StaticBody2D"]
+[node name="investigation_centre" type="StaticBody2D" groups=[
+"consumers",
+"interactuables",
+]]
 collision_layer = 4
+collision_mask = 33
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -27,6 +31,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="investigation_timer" type="Timer" parent="."]
-autostart = true
+[node name="investigation_timer" type="Timer" parent="." groups=[
+"interactuables",
+]]
 [connection signal="timeout" from="investigation_timer" to="." method="_on_investigation_timer_timeout"]
