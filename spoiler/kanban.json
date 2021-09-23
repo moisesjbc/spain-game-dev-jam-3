@@ -1,0 +1,232 @@
+{
+  "name": "Spain game dev 3",
+  "numberOfColumns": 3,
+  "columns": [
+    {
+      "name": "ToDo",
+      "cards": [
+        {
+          "name": "Copia de seguridad del Kanban",
+          "details": "",
+          "color": "FCE4D4"
+        },
+        {
+          "name": "Cables puedo cortarlos con un botón que pongo en la mitad de ellos o en el punto más cercano al jugador (aunque sería un doble botón para decidir desde qué lado se corta)",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "[Split] Indicadores (DESC)",
+          "details": "- Energía torreta\n- Energía centro de investigación\n- ¿Energía generador?\n- Zona de rastreo (torreta)\n- Apuntado (torreta)",
+          "color": "FCC7FC"
+        },
+        {
+          "name": "Apuntar / ¿hacer?: que el edificio de investigación te mande a buscar objetos por el mapa",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Aumentar dificultad con tiempo",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "¿Permitir mover torretas?",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Añadir acción de cancelar tirar cable (acción sobre el origen cuando se está tirando cable)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir color distinto a cada conexión y reflejarlo en la acción de desconectar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "No permitir hacer dos veces la misma conexión",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "[Split] Distribuir energía a crear una nueva conexión",
+          "details": "",
+          "color": "FCC7FC"
+        },
+        {
+          "name": "[Split] Definir hitos (DESC)",
+          "details": "- Trama\n- Programación\n- Arte\n- Menús\n- Música\n- Entrega",
+          "color": "FCC7FC"
+        },
+        {
+          "name": "Ajustar tiempo de recarga si la torreta ya estaba preparando un disparo y cambia su energía",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Eliminar sprite de Godot (usos y fichero)",
+          "details": "",
+          "color": "C1F7C2"
+        }
+      ],
+      "settings": {}
+    },
+    {
+      "name": "On going",
+      "cards": [],
+      "settings": {
+        "limit": 2
+      }
+    },
+    {
+      "name": "Done",
+      "cards": [
+        {
+          "name": "Generar mapa aleatoriamente",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "[Centro de investigación] Ajustar velocidad de investigación según energía",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Torretas sin energía siguen disparando",
+          "details": "",
+          "color": "FF9E9E"
+        },
+        {
+          "name": "[Torreta] Ajustar velocidad de disparo según energía",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Calcular energía final de cada consumidor en la red",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Edificio de investigación sólo funciona con electricidad",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir edificio de investigación (+ barra con victoria y menú simple)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir condición de derrota (menú simple)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Respawn de fantasmas",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Movimiento por el mapa (límites y cámara)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir acción de desconectar cable (quitando energía)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Refactorizar acciones disponibles en Actions",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Renombrar \"buildings\" (grupo, funciones y variables)",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Activar torreta cuando está conectada (sin cálculo de energía)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Acción de recoger cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir acción de conectar (sin efecto)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Acción de tirar y soltar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear generador (+ accion para tirar cable)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir disparo a torretas (con carga)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir disparo a torretas (sin carga)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear torreta (detecta y sigue a los fantasmas)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear fantasma que sigue al jugador y desaparece al contacto",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Giro del personaje",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Movimiento del personaje",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Elegir motor -> Godot",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Tormenta de ideas (DESC)",
+          "details": "# Idea seleccionada\n\nVer <spoiler/idea.yaml>\n\n# Descartes\n\n- som cable\n- Cupido generaciones, historia al final, aumentar natalidad, recursos naturales, ampliación de la ciudad, etc\n- El Magnetic Martín?\n\n- https://dle.rae.es/uni%C3%B3n\n\n---\n- detective uniendo pistas para capturar al asesino del puzzle\n- Discapacitado / narcolepsia pero es mentira?\n- Se comunica con su ayudante que es al que manda y le reporta chistes y demás\n- Objetos en la habitación para descansar. Cada uno en secreto afecta a la siguiente víctima (bueno, el orden incrementaría la dificultad / número de caminos posibles)\n\n---> Podría estar bien, pero quizás no logre hacer algo mínimo entregable y no termina de estar muy claro el tema.\n\n- Cupido (¿inverso?): vista cenital, vienen \"zombies\" a pegarle y tiene que juntarlos con parejas compatibles / no compatibles.\n   - Cupido normal: analiza parejas, las marca y las enlaza.\n\n- Tower defense pero tiene la fase de construcción y la fase de oleada donde hay que ir tirando cable entre fuentes de energía y torres.\n\n- Uniendo ciudades que se dan visión y recursos unas a otras.\n\n- Tower defense pero eres uno de los atacantes que intenta que los de las torres se enamoren entre ellos para que dejen de atacar a las oleadas.",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear repositorio (spain-game-dev-jam-3)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Leer https://itch.io/jam/spain-game-devs-jam-iii",
+          "details": "",
+          "color": "FAFCD2"
+        }
+      ],
+      "settings": {}
+    }
+  ],
+  "archived": [],
+  "settings": {}
+}
