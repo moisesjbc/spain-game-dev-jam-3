@@ -16,3 +16,9 @@ class Context:
 		context.connections = new_connections
 		
 		return context
+
+
+enum IngameMenu {
+  GAME_OVER,
+  VICTORY
+}
