@@ -9,6 +9,10 @@ export var hp = 3
 var close_interactuables = []
 
 
+func _ready():
+	get_parent().get_node('connections').player = self
+
+
 func _physics_process(delta):
 	_process_player_movement(delta)
 	_process_player_rotation()

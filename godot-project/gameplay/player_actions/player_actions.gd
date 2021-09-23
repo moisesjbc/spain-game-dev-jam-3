@@ -24,8 +24,5 @@ func init(context: Types.Context):
 func clear():
 	for action in $control/container.get_children():
 		action.visible = false
-		
-	for disconnect_action in $control/container/disconnect.get_children():
-		disconnect_action.visible = false
 	
 	visible = false
