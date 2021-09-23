@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1005.1, 12.1448 )
+
+[node name="wall" type="StaticBody2D"]
+collision_layer = 64
+
+[node name="color_rect" type="ColorRect" parent="."]
+margin_left = -800.0
+margin_right = 1200.0
+margin_bottom = 22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+position = Vector2( 200.782, 10.0181 )
+shape = SubResource( 1 )
