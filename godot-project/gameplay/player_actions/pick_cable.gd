@@ -21,7 +21,7 @@ func apply():
 	cable_roll.rotation = context.player.rotation
 	cable_roll.get_node('sprite').visible = false
 	
-	context.player_actions.queue_free()
+	context.player_actions.clear()
 
 
 func _on_leave_cable_pressed():

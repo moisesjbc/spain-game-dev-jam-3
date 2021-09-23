@@ -16,7 +16,7 @@ func get_applicable_actions(new_context: Types.Context):
 func apply():
 	var cable_roll = context.player.get_node_or_null('cable_roll')
 	cable_roll.start_throwing(context.closest_interactuable)
-	context.player_actions.queue_free()
+	context.player_actions.clear()
 
 
 func _on_throw_cable_pressed():

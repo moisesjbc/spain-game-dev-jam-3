@@ -1,23 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gameplay/player_actions/player_actions.gd" type="Script" id=1]
 [ext_resource path="res://gameplay/player_actions/throw_cable.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/player_actions/connect.gd" type="Script" id=3]
 [ext_resource path="res://gameplay/player_actions/leave_cable.gd" type="Script" id=4]
 [ext_resource path="res://gameplay/player_actions/pick_cable.gd" type="Script" id=5]
+[ext_resource path="res://gameplay/player_actions/disconnect.gd" type="Script" id=6]
 
 [node name="player_actions" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="container" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="control" type="Control" parent="."]
+margin_right = 686.0
+margin_bottom = 444.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="throw_cable" type="Button" parent="container"]
-margin_right = 101.0
+[node name="container" type="VBoxContainer" parent="control"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="throw_cable" type="Button" parent="control/container"]
+margin_right = 300.0
 margin_bottom = 20.0
 text = "Tirar cable"
 script = ExtResource( 2 )
@@ -25,9 +34,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="connect" type="Button" parent="container"]
+[node name="connect" type="Button" parent="control/container"]
 margin_top = 24.0
-margin_right = 101.0
+margin_right = 300.0
 margin_bottom = 44.0
 text = "Conectar"
 script = ExtResource( 3 )
@@ -35,9 +44,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="leave_cable" type="Button" parent="container"]
+[node name="leave_cable" type="Button" parent="control/container"]
 margin_top = 48.0
-margin_right = 101.0
+margin_right = 300.0
 margin_bottom = 68.0
 text = "Soltar cable"
 script = ExtResource( 4 )
@@ -45,12 +54,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="pick_cable" type="Button" parent="container"]
+[node name="pick_cable" type="Button" parent="control/container"]
 margin_top = 72.0
-margin_right = 101.0
+margin_right = 300.0
 margin_bottom = 92.0
 text = "Recoger cable"
 script = ExtResource( 5 )
-[connection signal="pressed" from="container/throw_cable" to="container/throw_cable" method="_on_throw_cable_pressed"]
-[connection signal="pressed" from="container/connect" to="container/connect" method="_on_connect_pressed"]
-[connection signal="pressed" from="container/leave_cable" to="container/leave_cable" method="_on_leave_cable_pressed"]
+
+[node name="disconnect" type="VBoxContainer" parent="control/container"]
+margin_top = 96.0
+margin_right = 300.0
+margin_bottom = 96.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="control/container/throw_cable" to="control/container/throw_cable" method="_on_throw_cable_pressed"]
+[connection signal="pressed" from="control/container/connect" to="control/container/connect" method="_on_connect_pressed"]
+[connection signal="pressed" from="control/container/leave_cable" to="control/container/leave_cable" method="_on_leave_cable_pressed"]
