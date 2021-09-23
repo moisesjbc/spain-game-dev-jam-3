@@ -75,7 +75,6 @@ func _compute_energy():
 			var available_energy = float(generator.total_energy)
 			var consumers_requiring_energy = [] + connected_consumers
 			
-			
 			while available_energy > 0.5 and len(consumers_requiring_energy):
 				var current_consumers = [] + consumers_requiring_energy
 				consumers_requiring_energy = []
@@ -98,7 +97,8 @@ func _compute_energy():
 						else:
 							available_energy -= energy_per_consumer - (current_consumer.max_energy - energies[current_consumer.name])
 							energies[current_consumer.name] += current_consumer.max_energy - energies[current_consumer.name]
-			
+		
+			print("energies ", energies)
 			for consumer in _consumers:
 				if energies.has(consumer.name):
 					consumer.set_energy(energies[consumer.name])

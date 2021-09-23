@@ -21,7 +21,7 @@ func _on_influence_area_body_exited(body):
 		targets_in_area.remove(target_index)
 		if target_index == 0:
 			$shoot_charging_timer.stop()
-			if len(targets_in_area) > 0:
+			if energy > 0.2 and len(targets_in_area) > 0:
 				_prepare_shoot()
 
 
@@ -32,7 +32,9 @@ func _physics_process(_delta):
 
 func _prepare_shoot():
 	var shoot_charging_timeout = min_shoot_charging_timeout + (1.0 - (energy / max_energy)) * (max_shoot_charging_timeout - min_shoot_charging_timeout)
+	print('enery', energy)
 	print('shoot_charging_timeout', shoot_charging_timeout)
+	
 	look_at(targets_in_area[0].global_position)
 	$shoot_charging_timer.start(shoot_charging_timeout)
 
@@ -45,7 +47,7 @@ func shoot():
 		bullet.look_at(targets_in_area[0].global_position)
 		
 		targets_in_area.remove(0)
-		if energy and len(targets_in_area) > 0:
+		if energy > 0.2 and len(targets_in_area) > 0:
 			_prepare_shoot()
 
 
@@ -58,6 +60,5 @@ func set_energy(new_energy):
 	energy = new_energy
 	if energy < 0.2:
 		$shoot_charging_timer.stop()
-	if energy > 0.2:
-		if $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
-			_prepare_shoot()
+	if energy > 0.2 and $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
+		_prepare_shoot()
