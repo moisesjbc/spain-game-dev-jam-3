@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gameplay/environment/interactuables_respawn/interactuables_respawn.gd" type="Script" id=1]
+
+[node name="interactuables_respawn" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="buildings_respawn_areas" type="Node2D" parent="."]
+
+[node name="b0" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -429.378, -302.204 )
+
+[node name="b1" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 1.77557, -303.539 )
+
+[node name="b2" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 451.617, -298.2 )
+
+[node name="b3" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -429.378, -64.6027 )
+
+[node name="b4" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 1.77557, -72.6117 )
+
+[node name="b5" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 459.626, -81.9556 )
+
+[node name="b6" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -432.047, 193.021 )
+
+[node name="b7" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 0.440735, 187.682 )
+
+[node name="b8" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 460.961, 187.682 )
+
+[node name="b9" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -424.038, 397.252 )
+
+[node name="b10" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 1.77557, 395.917 )
+
+[node name="b11" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 466.3, 401.256 )
+
+[node name="b12" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -432.125, 636.457 )
+
+[node name="b13" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -1.98273, 623.744 )
+
+[node name="b14" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 479.013, 627.982 )
+
+[node name="b15" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( -436.362, 882.253 )
+
+[node name="b16" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 6.4931, 884.372 )
+
+[node name="b17" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 481.133, 890.728 )
+
+[node name="b18" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 834.993, -297.989 )
+
+[node name="b19" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 834.993, -88.2154 )
+
+[node name="b20" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 824.399, 197.84 )
+
+[node name="b21" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 820.161, 397.019 )
+
+[node name="b22" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 830.755, 630.101 )
+
+[node name="b23" type="Position2D" parent="buildings_respawn_areas"]
+position = Vector2( 841.35, 890.729 )
