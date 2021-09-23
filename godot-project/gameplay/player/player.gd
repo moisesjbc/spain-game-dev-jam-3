@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export (int) var movement_speed = 500
 export var hp = 3
+var player_actions_scene = preload("res://gameplay/player_actions/player_actions.tscn")
 
 var close_interactuables = []
 
@@ -33,32 +34,14 @@ func _process_player_rotation():
 	
 	
 func _process_player_actions():
-	if Input.is_action_just_pressed('ui_action'):
-		if len(close_interactuables):
-			if get_node_or_null("cable_roll"):
-				if not $cable_roll.throwing_cable:
-					$cable_roll.start_throwing(_get_closest_interactuable())
-				else:
-					$cable_roll.connect_to(_get_closest_interactuable(), get_parent().get_node('connections'))
-			else:
-				var closest_interactuable = _get_closest_interactuable()
-				if closest_interactuable.name == 'cable_roll':
-					var cable_roll = closest_interactuable
-					get_parent().remove_child(cable_roll)
-					add_child(cable_roll)
-					cable_roll.global_position = global_position
-					cable_roll.rotation = rotation
-					cable_roll.get_node('sprite').visible = false
-		elif !len(close_interactuables) and $cable_roll and $cable_roll.throwing_cable:
-			var cable_roll = $cable_roll
-			remove_child(cable_roll)
-			get_parent().add_child(cable_roll)
-			cable_roll.global_position = global_position
-			cable_roll.rotation = rotation
-			cable_roll.get_node('sprite').visible = true
-			
-			
-			
+	if Input.is_action_just_pressed('ui_action') and not get_parent().get_node_or_null('player_actions'):
+		var player_actions = player_actions_scene.instance()
+		get_parent().add_child(player_actions)
+		player_actions.global_position = global_position
+		var context = Types.Context.create(self, player_actions, _get_closest_interactuable(), get_parent().get_node('connections'))
+		player_actions.init(context)
+
+
 func _get_closest_interactuable():
 	var n_close_interactuables = len(close_interactuables)
 	if n_close_interactuables == 0:
@@ -74,8 +57,7 @@ func _get_closest_interactuable():
 				closest_interactuable = close_interactuables[current_index]
 				closest_distance = distance
 		return closest_interactuable
-			
-	
+
 
 func damage():
 	hp -= 1
