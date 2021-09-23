@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gameplay/player_actions/player_actions.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://gameplay/buildings/generator/generator.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameplay/connections/connections.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/environment/walls/walls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gameplay/environment/phantoms_respawn/phantoms_respawn.tscn" type="PackedScene" id=8]
 
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 871.969, 437.781 )
 
-[node name="gun" parent="." instance=ExtResource( 4 )]
+[node name="turret" parent="." instance=ExtResource( 4 )]
 position = Vector2( 790, 202 )
 
 [node name="phantom2" parent="." instance=ExtResource( 3 )]
@@ -31,3 +32,7 @@ position = Vector2( 89.4341, 72.0812 )
 visible = false
 
 [node name="walls" parent="." instance=ExtResource( 7 )]
+
+[node name="phantoms_respawn" parent="." instance=ExtResource( 8 )]
+position = Vector2( -869.018, -988.883 )
+scale = Vector2( 2.6, 4.6 )

@@ -19,6 +19,8 @@ func _on_influence_area_body_exited(body):
 		targets_in_area.remove(target_index)
 		if target_index == 0:
 			$shoot_charging_timer.stop()
+			if len(targets_in_area) > 0:
+				_prepare_shoot()
 
 
 func _physics_process(_delta):

@@ -10,12 +10,13 @@ func init(new_context, new_connection):
 
 
 func apply():
-	var origin = connection[0]
-	
-	if context.closest_interactuable == connection[0]:
-		origin = connection[1]
+	if context.player.get_node_or_null('cable_roll'):
+		var origin = connection[0]
 		
-	context.player.get_node('cable_roll').start_throwing(origin)
-	context.connections.disconnect_connection(connection)
-	
-	context.player_actions.clear()
+		if context.closest_interactuable == connection[0]:
+			origin = connection[1]
+			
+		context.player.get_node('cable_roll').start_throwing(origin)
+		context.connections.disconnect_connection(connection)
+		
+		context.player_actions.clear()
