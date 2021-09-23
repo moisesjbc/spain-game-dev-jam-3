@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal player_died
+
 export (int) var movement_speed = 500
 export var hp = 3
 
@@ -61,6 +63,8 @@ func _get_closest_interactuable():
 func damage():
 	hp -= 1
 	print('damage! new hp', hp)
+	if hp <= 0:
+		emit_signal('player_died')
 
 
 func _on_influence_area_body_entered(body):
