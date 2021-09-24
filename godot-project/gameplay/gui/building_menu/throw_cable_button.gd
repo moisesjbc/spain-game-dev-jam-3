@@ -6,7 +6,7 @@ var building
 var player
 
 
-func is_available(new_player, connections):
+func is_available(new_player, _new_connections):
 	player = new_player
 	var cable_roll = player.get_node_or_null('cable_roll')
 	return cable_roll and not cable_roll.throwing_cable

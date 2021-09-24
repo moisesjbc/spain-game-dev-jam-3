@@ -9,7 +9,7 @@ func _ready():
 	_respawn_buildings("res://gameplay/buildings/turret/turret.tscn", n_turrets)
 	_respawn_buildings("res://gameplay/buildings/investigation_centre/investigation_centre.tscn", 1)
 
-	get_node('investigation_centre').connect('investigation_points_updated', $gui/investigation_points_progress, 'set_investigation_points')
+	var _unused = get_node('investigation_centre').connect('investigation_points_updated', $gui/investigation_points_progress, 'set_investigation_points')
 
 
 func _on_player_player_died():
