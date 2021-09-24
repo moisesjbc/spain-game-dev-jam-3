@@ -6,12 +6,72 @@
       "name": "ToDo",
       "cards": [
         {
-          "name": "Copia de seguridad del Kanban",
+          "name": "Planificar",
           "details": "",
           "color": "FCE4D4"
         },
         {
-          "name": "Cables puedo cortarlos con un botón que pongo en la mitad de ellos o en el punto más cercano al jugador (aunque sería un doble botón para decidir desde qué lado se corta)",
+          "name": "Añadir pause",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir acción de cancelar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Estilos menú de game over / victoria (incluyendo fuente Ubuntu)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "A veces el centro de investigación no avanza (¿o es por poca energía?)",
+          "details": "",
+          "color": "FFB5B5"
+        },
+        {
+          "name": "Si el jugador está pegado a dos edificios y en uno de ellos hace una acción la del otro no le sale hasta que sale y vuelve a entrar en su radio",
+          "details": "",
+          "color": "FFB5B5"
+        },
+        {
+          "name": "Eliminar sprite de Godot (usos y fichero)",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "[Split] Añadir menús (DESC)",
+          "details": "- Principal\n- Cómo se juega\n- Créditos",
+          "color": "FCC7FC"
+        },
+        {
+          "name": "Entrega v1.0",
+          "details": "",
+          "color": "FFB5B5"
+        },
+        {
+          "name": "[Split] Resto de sprites",
+          "details": "",
+          "color": "FCC7FC"
+        },
+        {
+          "name": "Indicar falta de electricidad en barra de puntos de investigación",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Área de influencia de las torretas",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Añadir hierbajos",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Incrementar dificultad con el tiempo / ajustar dificultad actual",
           "details": "",
           "color": "C1F7C2"
         },
@@ -51,11 +111,6 @@
           "color": "FAFCD2"
         },
         {
-          "name": "[Split] Distribuir energía a crear una nueva conexión",
-          "details": "",
-          "color": "FCC7FC"
-        },
-        {
           "name": "[Split] Definir hitos (DESC)",
           "details": "- Trama\n- Programación\n- Arte\n- Menús\n- Música\n- Entrega",
           "color": "FCC7FC"
@@ -64,18 +119,19 @@
           "name": "Ajustar tiempo de recarga si la torreta ya estaba preparando un disparo y cambia su energía",
           "details": "",
           "color": "C1F7C2"
-        },
-        {
-          "name": "Eliminar sprite de Godot (usos y fichero)",
-          "details": "",
-          "color": "C1F7C2"
         }
       ],
       "settings": {}
     },
     {
       "name": "On going",
-      "cards": [],
+      "cards": [
+        {
+          "name": "Copia de seguridad del Kanban",
+          "details": "",
+          "color": "FCE4D4"
+        }
+      ],
       "settings": {
         "limit": 2
       }
@@ -83,6 +139,131 @@
     {
       "name": "Done",
       "cards": [
+        {
+          "name": "Hacer edificio de investigación más pequeño",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Botón de cortar cable a veces no tiene efecto (¿cuando pasa cerca de otra construcción -> creo que es por el shadow?)",
+          "details": "",
+          "color": "FFB5B5"
+        },
+        {
+          "name": "Arreglar jugador no gana",
+          "details": "",
+          "color": "FFB5B5"
+        },
+        {
+          "name": "Establecer ratio para que no se deforme en pantalla completa",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Tenía generator - torreta1 - torreta2 - torreta3 y al desconectar torreta2 y torreta3, torreta2 no disparaba",
+          "details": "",
+          "color": "FF9E9E"
+        },
+        {
+          "name": "Mostrar energía como <actual> / <máxima>",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Quitar acciones de soltar y volver a recoger cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite botón cortar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite botón conectar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite botón sacar cable",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Paredes",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Fondo",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Ratón",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite de bala",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "[GUI] Puntos de investigación (¿barra?)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "[GUI] Vida del jugador (corazones)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Mostrar energía como porcentaje",
+          "details": "",
+          "color": "C1F7C2"
+        },
+        {
+          "name": "Indicadores de energía (rayo)",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear sprite de fantasmas",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite del centro de investigación",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Añadir sprite de la torreta",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Crear sprite de jugador",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Acciones de sacar y connectar cable son botones",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Soltar cable no es posible si estás cerca de una construcción",
+          "details": "",
+          "color": "FAFCD2"
+        },
+        {
+          "name": "Cables puedo cortarlos con un botón que pongo en la mitad de ellos o en el punto más cercano al jugador (aunque sería un doble botón para decidir desde qué lado se corta, ¿o no?)",
+          "details": "",
+          "color": "C1F7C2"
+        },
         {
           "name": "Generar mapa aleatoriamente",
           "details": "",
