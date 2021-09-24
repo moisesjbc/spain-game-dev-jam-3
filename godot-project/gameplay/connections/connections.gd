@@ -86,10 +86,14 @@ func _remove_node_if_not_connected_to_anything(node):
 	if not len(_get_connected_consumers(node, [])):
 		if 'generators' in node.get_groups():
 			node.consumed_energy = 0
-			_generators.remove(_generators.find(node))
+			var generator_index = _generators.find(node)
+			if generator_index >= 0:
+				_generators.remove(generator_index)
 		elif 'consumers' in node.get_groups():
 			node.set_energy(0)
-			_consumers.remove(_consumers.find(node))
+			var consumer_index = _consumers.find(node)
+			if consumer_index >= 0:
+				_consumers.remove(consumer_index)
 
 
 func _compute_energy():
