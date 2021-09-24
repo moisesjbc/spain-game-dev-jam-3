@@ -6,14 +6,55 @@
 position = Vector2( 272, -664 )
 
 [node name="top_wall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.529663, 2.52972 )
+
+[node name="shadow" type="ColorRect" parent="top_wall"]
+margin_left = -778.0
+margin_top = 22.0
+margin_right = 1178.0
+margin_bottom = 62.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bottom_wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 2030.81 )
+position = Vector2( 0, 2023.81 )
+
+[node name="shadow" type="ColorRect" parent="bottom_wall"]
+margin_left = -800.0
+margin_top = 22.0
+margin_right = 1200.0
+margin_bottom = 62.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="left_wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( -780.352, 824.079 )
+position = Vector2( -777.154, 823.881 )
 rotation = 1.5708
 
+[node name="shadow" type="ColorRect" parent="left_wall"]
+margin_left = -821.0
+margin_top = 23.0
+margin_right = 1262.0
+margin_bottom = 63.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="right_wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1198.65, 824.079 )
+position = Vector2( 1200.65, 824.079 )
 rotation = 1.5708
+
+[node name="shadow" type="ColorRect" parent="right_wall"]
+margin_left = -760.0
+margin_top = 23.0
+margin_right = 1200.0
+margin_bottom = 63.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
