@@ -40,3 +40,5 @@ func set_energy(new_energy):
 		$investigation_timer.stop()
 
 	energy = new_energy
+	
+	$energy_label.set_energy((float(energy) / max_energy) * 100)

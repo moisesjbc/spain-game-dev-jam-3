@@ -59,3 +59,4 @@ func set_energy(new_energy):
 		$shoot_charging_timer.stop()
 	if energy > 0.2 and $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
 		_prepare_shoot()
+	$energy_label.set_energy((float(energy) / max_energy) * 100)

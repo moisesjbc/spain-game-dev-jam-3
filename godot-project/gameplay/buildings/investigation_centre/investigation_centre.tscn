@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gameplay/buildings/investigation_centre/investigation_centre.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/buildings/investigation_centre/investigation_centre.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/gui/building_menu/building_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gameplay/gui/energy_label/energy_label.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 214.93, 212.609 )
@@ -50,4 +51,6 @@ __meta__ = {
 
 [node name="building_menu" parent="." instance=ExtResource( 3 )]
 position = Vector2( -28.5773, -17.7114 )
+
+[node name="energy_label" parent="." instance=ExtResource( 4 )]
 [connection signal="timeout" from="investigation_timer" to="." method="_on_investigation_timer_timeout"]
