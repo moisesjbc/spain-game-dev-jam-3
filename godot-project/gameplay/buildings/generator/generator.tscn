@@ -15,6 +15,17 @@ collision_layer = 4
 collision_mask = 33
 script = ExtResource( 2 )
 
+[node name="shadow" type="ColorRect" parent="."]
+margin_left = -86.6031
+margin_top = -35.1748
+margin_right = 69.3969
+margin_bottom = 51.8252
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="sprite" type="Sprite" parent="."]
 modulate = Color( 0.74902, 0.74902, 0.745098, 1 )
 texture = ExtResource( 1 )
