@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://gameplay/player_actions/player_actions.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/gui/life/life.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameplay/gui/investigation_points_progress_bar/investigation_points_progress_bar.tscn" type="PackedScene" id=5]
@@ -18,9 +17,6 @@ script = ExtResource( 10 )
 position = Vector2( 871.969, 437.781 )
 
 [node name="connections" parent="." instance=ExtResource( 6 )]
-
-[node name="player_actions" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="walls" parent="." instance=ExtResource( 7 )]
 
