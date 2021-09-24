@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 signal investigation_completed
-
+signal investigation_points_updated
 
 var target_investigation_points = 100.0
 var current_investigation_points = 0.0
@@ -21,10 +21,12 @@ func _ready():
 func _on_investigation_timer_timeout():
 	var investigation_points = min_investigation_points_per_second + (energy / max_energy) * (max_investigation_points_per_second - min_investigation_points_per_second)
 	current_investigation_points += investigation_points
-
+	
 	if current_investigation_points >= target_investigation_points:
 		current_investigation_points = target_investigation_points
 		emit_signal('investigation_completed')
+
+	emit_signal('investigation_points_updated', current_investigation_points)
 
 	_update_label()
 
