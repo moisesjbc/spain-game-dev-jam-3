@@ -15,6 +15,7 @@ var max_energy = 3
 
 
 func _ready():
+	set_energy(0)
 	_update_label()
 
 
@@ -43,4 +44,4 @@ func set_energy(new_energy):
 
 	energy = new_energy
 	
-	$energy_label.set_energy((float(energy) / max_energy) * 100)
+	$energy_label.set_energy(energy, max_energy)

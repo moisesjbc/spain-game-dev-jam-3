@@ -4,8 +4,12 @@ var targets_in_area = []
 var bullet_scene = preload("res://gameplay/items/bullet/bullet.tscn")
 var max_shoot_charging_timeout = 2.0
 var min_shoot_charging_timeout = 0.5
-var energy = 0.0
-var max_energy = 5.0
+var energy = 0
+var max_energy = 5
+
+
+func _ready():
+	set_energy(0)
 
 
 func _on_influence_area_body_entered(body):
@@ -59,4 +63,4 @@ func set_energy(new_energy):
 		$shoot_charging_timer.stop()
 	if energy > 0.2 and $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
 		_prepare_shoot()
-	$energy_label.set_energy((float(energy) / max_energy) * 100)
+	$energy_label.set_energy(energy, max_energy)

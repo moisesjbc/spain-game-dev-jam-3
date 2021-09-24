@@ -16,9 +16,9 @@ func add_connection(building_0, building_1):
 	elif 'generators' in building_1.get_groups() and _generators.find(building_1) < 0:
 		_generators.append(building_1)
 		
-	if 'consumers' in building_0.get_groups():
+	if 'consumers' in building_0.get_groups() and _consumers.find(building_0) < 0:
 		_consumers.append(building_0)
-	elif 'consumers' in building_1.get_groups():
+	elif 'consumers' in building_1.get_groups() and _consumers.find(building_1) < 0:
 		_consumers.append(building_1)
 		
 	_compute_energy()
@@ -74,24 +74,23 @@ func _draw():
 
 
 func disconnect_connection(connection):
-	if 'generators' in connection[0].get_groups():
-		connection[0].consumed_energy = 0
-		_generators.remove(_generators.find(connection[0]))
-	elif 'generators' in connection[1].get_groups():
-		connection[1].consumed_energy = 0
-		_generators.remove(_generators.find(connection[1]))
-		
-	if 'consumers' in connection[0].get_groups():
-		connection[0].set_energy(0)
-		_consumers.remove(_consumers.find(connection[0]))
-	elif 'consumers' in connection[1].get_groups():
-		connection[1].set_energy(0)
-		_consumers.remove(_consumers.find(connection[1]))
-
 	_connections.remove(_connections.find(connection))
 	
+	_remove_node_if_not_connected_to_anything(connection[0])
+	_remove_node_if_not_connected_to_anything(connection[1])
+
 	_compute_energy()
 	
+
+func _remove_node_if_not_connected_to_anything(node):
+	if not len(_get_connected_consumers(node, [])):
+		if 'generators' in node.get_groups():
+			node.consumed_energy = 0
+			_generators.remove(_generators.find(node))
+		elif 'consumers' in node.get_groups():
+			node.set_energy(0)
+			_consumers.remove(_consumers.find(node))
+
 
 func _compute_energy():
 	for generator in _generators:
@@ -106,14 +105,12 @@ func _compute_energy():
 		var connected_consumers = _get_connected_consumers(generator, [])
 		
 		if len(connected_consumers):
-			var available_energy = float(generator.total_energy)
+			var available_energy = generator.total_energy
 			var consumers_requiring_energy = [] + connected_consumers
 			
 			while available_energy > 0.5 and len(consumers_requiring_energy):
 				var current_consumers = [] + consumers_requiring_energy
 				consumers_requiring_energy = []
-				
-				var energy_per_consumer = available_energy / len(current_consumers)
 				
 				while available_energy and len(current_consumers):
 					var current_consumer = current_consumers.pop_back()
@@ -121,33 +118,53 @@ func _compute_energy():
 					if not energies.has(current_consumer.name):
 						energies[current_consumer.name] = current_consumer.energy
 					
+					var energy_to_add = _calculate_energy_for_consumer(available_energy, len(current_consumers) + 1)
 					if energies[current_consumer.name] < current_consumer.max_energy:
-						if current_consumer.max_energy - energies[current_consumer.name] >= energy_per_consumer:
-							energies[current_consumer.name] += energy_per_consumer
-							available_energy -= energy_per_consumer
+						if current_consumer.max_energy - energies[current_consumer.name] >= energy_to_add:
+							energies[current_consumer.name] += energy_to_add
+							available_energy -= energy_to_add
 							
-							if current_consumer.max_energy - energies[current_consumer.name] > energy_per_consumer:
+							if current_consumer.max_energy - energies[current_consumer.name] > energy_to_add:
 								consumers_requiring_energy.push_back(current_consumer)
 						else:
-							available_energy -= energy_per_consumer - (current_consumer.max_energy - energies[current_consumer.name])
+							available_energy -= energy_to_add - (current_consumer.max_energy - energies[current_consumer.name])
 							energies[current_consumer.name] += current_consumer.max_energy - energies[current_consumer.name]
 		
 			print("energies ", energies)
 			for consumer in _consumers:
 				if energies.has(consumer.name):
+					print('consumer ', consumer.name, ' -> ', energies[consumer.name])
 					consumer.set_energy(energies[consumer.name])
 
-	
+func _calculate_energy_for_consumer(available_energy, n_consumers):
+	if available_energy >= n_consumers:
+		return (available_energy / n_consumers)
+	else:
+		return 1
+
+
 func _get_connected_consumers(node, visited_consumers):
-	var consumers = []
+	return _get_connected_nodes(node, visited_consumers, '_node_is_consumer')
+
+
+func _node_is_consumer(node):
+	return 'consumers' in node.get_groups()
+
+
+func _get_connected_nodes(node, visited_nodes, condition_predicate):
+	var connected_nodes = []
 	
 	for connection in _connections:
-		if (connection[0] == node) and not (connection[1] in visited_consumers) and 'consumers' in connection[1].get_groups():
-			consumers = consumers + [connection[1]] + _get_connected_consumers(connection[1], visited_consumers + [connection[1]])
-		elif (connection[1] == node) and not (connection[0] in visited_consumers) and 'consumers' in connection[0].get_groups():
-			consumers = consumers + [connection[0]] + _get_connected_consumers(connection[0], visited_consumers + [connection[0]])
+		if (connection[0] == node) and not (connection[1] in visited_nodes):
+			if condition_predicate == null or call(condition_predicate, connection[1]):
+				connected_nodes = connected_nodes + [connection[1]]
+			connected_nodes = connected_nodes + _get_connected_nodes(connection[1], visited_nodes + [connection[1]], condition_predicate)
+		elif (connection[1] == node) and not (connection[0] in visited_nodes):
+			if condition_predicate == null or call(condition_predicate, connection[0]):
+				connected_nodes = connected_nodes + [connection[0]]
+			connected_nodes = connected_nodes + _get_connected_nodes(connection[0], visited_nodes + [connection[0]], condition_predicate)
 		
-	return consumers
+	return connected_nodes
 
 
 func _on_closest_point_calculation_cooldown_timeout():
