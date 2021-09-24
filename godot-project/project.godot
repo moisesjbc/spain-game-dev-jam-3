@@ -23,6 +23,11 @@ config/icon="res://icon.png"
 
 Types="*res://gameplay/globals/types.gd"
 
+[display]
+
+mouse_cursor/custom_image="res://gameplay/gui/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2( 16, 16 )
+
 [input]
 
 ui_left={
