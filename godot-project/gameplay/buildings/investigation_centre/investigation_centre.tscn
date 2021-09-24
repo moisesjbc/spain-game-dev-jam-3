@@ -6,7 +6,7 @@
 [ext_resource path="res://gameplay/gui/energy_label/energy_label.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 214.93, 212.609 )
+extents = Vector2( 129.118, 128.844 )
 
 [node name="investigation_centre" type="StaticBody2D" groups=[
 "buildings",
@@ -18,10 +18,11 @@ collision_mask = 33
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -371.0
-margin_top = -214.0
-margin_right = 213.0
-margin_bottom = 327.0
+margin_left = -256.0
+margin_top = -128.0
+margin_right = 226.0
+margin_bottom = 330.0
+rect_scale = Vector2( 0.8, 0.8 )
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.392157 )
 __meta__ = {
@@ -30,10 +31,11 @@ __meta__ = {
 
 [node name="sprite" type="Sprite" parent="."]
 modulate = Color( 0.85098, 0.882353, 0.321569, 1 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
+position = Vector2( 1.25989, 0 )
 shape = SubResource( 1 )
 
 [node name="label" type="Label" parent="."]
