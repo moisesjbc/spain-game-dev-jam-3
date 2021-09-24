@@ -27,13 +27,13 @@ func _on_influence_area_body_exited(body):
 
 func _physics_process(_delta):
 	if energy > 0.2 and len(targets_in_area) > 0:
-		look_at(targets_in_area[0].global_position)
+		$head.look_at(targets_in_area[0].global_position)
 
 
 func _prepare_shoot():
 	var shoot_charging_timeout = min_shoot_charging_timeout + (1.0 - (energy / max_energy)) * (max_shoot_charging_timeout - min_shoot_charging_timeout)
 	
-	look_at(targets_in_area[0].global_position)
+	$head.look_at(targets_in_area[0].global_position)
 	$shoot_charging_timer.start(shoot_charging_timeout)
 
 
