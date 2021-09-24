@@ -9,14 +9,14 @@ var max_energy = 5.0
 
 
 func _on_influence_area_body_entered(body):
-	if 'phantoms' in body.get_groups():
+	if 'ghosts' in body.get_groups():
 		targets_in_area.append(body)
 		if energy > 0.2 and len(targets_in_area) == 1:
 			_prepare_shoot()
 
 
 func _on_influence_area_body_exited(body):
-	if 'phantoms' in body.get_groups() and body in targets_in_area:
+	if 'ghosts' in body.get_groups() and body in targets_in_area:
 		var target_index = targets_in_area.find(body)
 		targets_in_area.remove(target_index)
 		if target_index == 0:

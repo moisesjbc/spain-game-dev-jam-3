@@ -8,7 +8,7 @@ func _physics_process(delta):
 
 	var collision = move_and_collide(velocity * speed * delta)
 
-	if collision and 'phantoms' in collision.collider.get_groups():
+	if collision and 'ghosts' in collision.collider.get_groups():
 			collision.collider.queue_free()
 			queue_free()
 
