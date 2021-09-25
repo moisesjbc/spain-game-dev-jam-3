@@ -28,3 +28,4 @@ func another_ghost(_player_hp):
 	ghost.name = 'ghost'
 	ghost.connect('ghost_hit_by_bullet', self, '_ghost_hit_by_bullet')
 	tutorial.get_node('main').add_child(ghost)
+	ghost.movement_speed = 100

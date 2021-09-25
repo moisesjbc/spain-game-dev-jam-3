@@ -13,6 +13,7 @@ func on_init(info_text: RichTextLabel):
 	ghost.global_position.x += 300
 	ghost.name = 'ghost'
 	tutorial.get_node('main').add_child(ghost)
+	ghost.movement_speed = 100
 	ghost.set_physics_process(false)
 
 

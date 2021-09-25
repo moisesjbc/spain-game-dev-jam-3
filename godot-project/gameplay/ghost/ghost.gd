@@ -1,11 +1,15 @@
 extends KinematicBody2D
 
 var target = null
-export (int) var movement_speed = 100
+export (int) var min_movement_speed = 75
+export (int) var max_movement_speed = 200
+var movement_speed = 100
 signal ghost_hit_by_bullet
 
 
 func _ready():
+	movement_speed = min_movement_speed + randi() % (max_movement_speed - min_movement_speed)
+	
 	var main = get_tree().get_root().get_node_or_null("main")
 	if not main:
 		main = get_tree().get_root().get_node("tutorial/main")
