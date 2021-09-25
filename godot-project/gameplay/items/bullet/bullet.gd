@@ -10,7 +10,7 @@ func _physics_process(delta):
 
 	if collision and 'ghosts' in collision.collider.get_groups():
 		collision.collider.queue_free()
-		collision.collider.emit_signal('ghost_hit_by_bullet')
+		collision.collider.hit_ghost()
 		queue_free()
 
 

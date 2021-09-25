@@ -14,7 +14,8 @@ func _ready():
 
 
 func _on_player_player_died():
-	$gui/ingame_menu.display(Types.IngameMenu.GAME_OVER)
+	if get_parent().name != 'tutorial':
+		$gui/ingame_menu.display(Types.IngameMenu.GAME_OVER)
 
 
 func _on_investigation_centre_investigation_completed():

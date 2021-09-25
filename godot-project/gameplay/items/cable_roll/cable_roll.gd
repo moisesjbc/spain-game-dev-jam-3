@@ -36,7 +36,6 @@ func _draw():
 
 
 func connect_to(target, connections):
-	print('------------------_> HERE')
 	connections.add_connection(origin, target)
 	emit_signal('connection_ended', target)
 	stop_throwing()

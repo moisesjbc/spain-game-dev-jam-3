@@ -57,9 +57,10 @@ func _get_closest_interactuable():
 
 func damage():
 	hp -= 1
-	emit_signal('player_hit', hp)
 	if hp <= 0:
+		hp = 0
 		emit_signal('player_died')
+	emit_signal('player_hit', hp)
 
 
 func _on_influence_area_body_entered(body):

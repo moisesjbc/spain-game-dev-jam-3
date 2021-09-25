@@ -26,3 +26,8 @@ func _move_to_target(delta):
 	if _collision and _collision.collider.name == 'player':
 		_collision.collider.damage()
 		queue_free()
+
+
+func hit_ghost():
+	queue_free()
+	emit_signal('ghost_hit_by_bullet')

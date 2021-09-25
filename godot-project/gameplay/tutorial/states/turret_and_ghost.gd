@@ -21,11 +21,10 @@ func _ghost_hit_by_bullet():
 	tutorial.next_state()
 
 
-func another_ghost():
+func another_ghost(_player_hp):
 	ghost = ghost_scene.instance()
-	var player = tutorial.get_node('main').get_node('player')
 	ghost.global_position = player.global_position
 	ghost.global_position.x += 300
 	ghost.name = 'ghost'
+	ghost.connect('ghost_hit_by_bullet', self, '_ghost_hit_by_bullet')
 	tutorial.get_node('main').add_child(ghost)
-	ghost.set_physics_process(false)
