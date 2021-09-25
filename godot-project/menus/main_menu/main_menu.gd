@@ -11,3 +11,7 @@ func _on_plain_button_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()
+
+
+func _on_credits_menu_pressed():
+	Utils.change_scene("res://menus/credits_menu/credits_menu.tscn")

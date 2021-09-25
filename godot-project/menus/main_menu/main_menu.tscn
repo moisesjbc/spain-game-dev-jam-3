@@ -31,9 +31,9 @@ margin_bottom = 549.0
 rect_min_size = Vector2( 400, 500 )
 
 [node name="title" type="Label" parent="center_container/vbox_container"]
-margin_top = 164.0
+margin_top = 134.0
 margin_right = 400.0
-margin_bottom = 221.0
+margin_bottom = 191.0
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
 text = "El electricista"
@@ -41,7 +41,7 @@ align = 1
 valign = 1
 
 [node name="buttons_container" type="VBoxContainer" parent="center_container/vbox_container"]
-margin_top = 390.0
+margin_top = 330.0
 margin_right = 400.0
 margin_bottom = 500.0
 custom_constants/separation = 10
@@ -52,11 +52,19 @@ margin_right = 400.0
 margin_bottom = 50.0
 text = "Jugar"
 
-[node name="exit_button" parent="center_container/vbox_container/buttons_container" instance=ExtResource( 2 )]
+[node name="credits_menu" parent="center_container/vbox_container/buttons_container" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = 60.0
 margin_right = 400.0
 margin_bottom = 110.0
+text = "Créditos"
+
+[node name="exit_button" parent="center_container/vbox_container/buttons_container" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 120.0
+margin_right = 400.0
+margin_bottom = 170.0
 text = "Salir del juego"
 [connection signal="pressed" from="center_container/vbox_container/buttons_container/plain_button" to="." method="_on_plain_button_pressed"]
+[connection signal="pressed" from="center_container/vbox_container/buttons_container/credits_menu" to="." method="_on_credits_menu_pressed"]
 [connection signal="pressed" from="center_container/vbox_container/buttons_container/exit_button" to="." method="_on_exit_button_pressed"]

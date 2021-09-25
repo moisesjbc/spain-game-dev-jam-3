@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/ubuntu/Ubuntu-B.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gui/menu_button/menu_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/credits_menu/credits_menu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="credits_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.33484
+margin_right = 1.33484
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox_container" type="VBoxContainer" parent="center_container"]
+margin_left = 62.0
+margin_top = 8.0
+margin_right = 962.0
+margin_bottom = 592.0
+custom_constants/separation = 10
+
+[node name="title" type="Label" parent="center_container/vbox_container"]
+margin_right = 900.0
+margin_bottom = 14.0
+
+[node name="panel" type="Panel" parent="center_container/vbox_container"]
+margin_top = 24.0
+margin_right = 900.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 900, 500 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="credits_text" type="RichTextLabel" parent="center_container/vbox_container/panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]
+[color=#FFB563]Idea y diseño[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+
+[center]
+[color=#FFB563]Programación[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licencia: [url=https://www.gnu.org/licenses/gpl-3.0.html]GPL v3[/url][/color]
+
+[center]
+[color=#FFB563]Arte[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licencia:  [url=http://creativecommons.org/licenses/by-nc-sa/4.0/]Attribution-NonCommercial-ShareAlike 4.0 International[/url][/color]
+
+
+[color=#FFB563]Fuentes[/color]
+[color=white]Ubuntu font - [url=https://design.ubuntu.com/font/]https://design.ubuntu.com/font/[/url][/color]
+
+
+[color=#FFB563]Software[/color]
+[color=white]Godot engine - [url=https://godotengine.org/]https://godotengine.org/[/url]
+Gimp - [url=https://www.gimp.org/]https://www.gimp.org/[/url]
+[/color]
+
+
+[color=#FFB563]Agradecimientos[/color]
+A los organizadores de la Spain Game Devs Jam III - [url=https://itch.io/jam/spain-game-devs-jam-iii]https://itch.io/jam/spain-game-devs-jam-iii[/url]
+
+
+[color=#FFB563]Hecho para la  Spain Game Devs Jam III - [url=https://itch.io/jam/spain-game-devs-jam-iii]https://itch.io/jam/spain-game-devs-jam-iii[/url]
+(Tema: \"Unión\")
+[/color][/center]"
+text = "
+Idea y diseño
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+
+
+Programación
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licencia: GPL v3
+
+
+Arte
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licencia:  Attribution-NonCommercial-ShareAlike 4.0 International
+
+
+Fuentes
+Ubuntu font - https://design.ubuntu.com/font/
+
+
+Software
+Godot engine - https://godotengine.org/
+Gimp - https://www.gimp.org/
+
+
+
+Agradecimientos
+A los organizadores de la Spain Game Devs Jam III - https://itch.io/jam/spain-game-devs-jam-iii
+
+
+Hecho para la  Spain Game Devs Jam III - https://itch.io/jam/spain-game-devs-jam-iii
+(Tema: \"Unión\")
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="return_to_main_menu_button" parent="center_container/vbox_container" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 534.0
+margin_right = 900.0
+margin_bottom = 584.0
+text = "Volver al menú principal"
+[connection signal="meta_clicked" from="center_container/vbox_container/panel/credits_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="center_container/vbox_container/return_to_main_menu_button" to="." method="_on_return_to_main_menu_button_pressed"]
