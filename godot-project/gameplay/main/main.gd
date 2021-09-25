@@ -18,7 +18,8 @@ func _on_player_player_died():
 
 
 func _on_investigation_centre_investigation_completed():
-	$gui/ingame_menu.display(Types.IngameMenu.VICTORY)
+	if get_parent().name != 'tutorial':
+		$gui/ingame_menu.display(Types.IngameMenu.VICTORY)
 	
 	
 func _input(event):
