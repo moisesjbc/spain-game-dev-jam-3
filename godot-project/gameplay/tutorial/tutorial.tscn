@@ -1,9 +1,90 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gameplay/main/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/tutorial/tutorial.gd" type="Script" id=2]
+[ext_resource path="res://fonts/ubuntu/Ubuntu-B.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gameplay/tutorial/states/welcome.gd" type="Script" id=4]
+[ext_resource path="res://gameplay/tutorial/states/movement.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.0980392, 0.372549, 0.380392, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 190.542, 230.863 )
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="main" parent="." instance=ExtResource( 1 )]
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="info_panel" type="Panel" parent="canvas"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -85.0
+margin_right = 400.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 800, 75 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="canvas/info_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -6.10352e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info_text" type="RichTextLabel" parent="canvas/info_panel/CenterContainer"]
+margin_left = 24.0
+margin_top = 25.0
+margin_right = 774.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 750, 20 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="states" type="Node" parent="."]
+
+[node name="welcome" type="Node" parent="states"]
+script = ExtResource( 4 )
+
+[node name="movement" type="Node" parent="states"]
+script = ExtResource( 5 )
+
+[node name="target_zone" type="Area2D" parent="states/movement"]
+visible = false
+position = Vector2( 512, 395 )
+
+[node name="color_rect" type="ColorRect" parent="states/movement/target_zone"]
+margin_left = -198.0
+margin_top = -230.0
+margin_right = 176.0
+margin_bottom = 227.0
+color = Color( 0.890196, 0.901961, 0.545098, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collision_shape" type="CollisionShape2D" parent="states/movement/target_zone"]
+position = Vector2( -11.588, -0.663818 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="states/movement/target_zone" to="states/movement" method="_on_target_zone_body_entered"]
