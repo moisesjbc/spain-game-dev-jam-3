@@ -71,7 +71,6 @@ func _on_influence_area_body_entered(body):
 		close_interactuables.append(body)
 		if building_menu:
 			building_menu.open(self, get_parent().get_node('connections'))
-			
 
 
 func _on_influence_area_body_exited(body):
@@ -85,3 +84,12 @@ func _on_influence_area_body_exited(body):
 			building_menu = body.get_parent().get_node_or_null('building_menu')
 		if building_menu:
 			building_menu.close()
+
+
+func reload_close_building_menus():
+	for close_interactuable in close_interactuables:
+		var building_menu = close_interactuable.get_node_or_null('building_menu')
+		if not building_menu:
+			building_menu = close_interactuable.get_parent().get_node_or_null('building_menu')
+		if building_menu:
+			building_menu.reload()

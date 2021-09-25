@@ -34,4 +34,3 @@ func reload():
 
 func close():
 	visible = false
-

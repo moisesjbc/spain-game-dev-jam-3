@@ -16,4 +16,4 @@ func _on_throw_cable_button_pressed():
 	var cable_roll = player.get_node_or_null('cable_roll')
 	if cable_roll:
 		cable_roll.start_throwing(building)
-		menu.reload()
+		player.reload_close_building_menus()
