@@ -6,4 +6,6 @@ func _on_return_to_main_menu_button_pressed():
 
 
 func _on_credits_text_meta_clicked(meta):
-	OS.shell_open(meta)
+	var result = OS.shell_open(meta)
+	if result != OK:
+		print('Error opening ', meta, ': ', result)
