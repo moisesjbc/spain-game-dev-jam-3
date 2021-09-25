@@ -17,6 +17,7 @@ func _ready():
 func _physics_process(delta):
 	_process_player_movement(delta)
 	_process_player_rotation()
+	_process_player_actions()
 
 
 func _process_player_movement(delta):
@@ -37,6 +38,12 @@ func _process_player_movement(delta):
 func _process_player_rotation():
 	look_at(get_global_mouse_position())
 
+
+func _process_player_actions():
+	if Input.is_action_just_pressed("ui_cancel_action") and $cable_roll.throwing_cable:
+		$cable_roll.stop_throwing()
+		reload_close_building_menus()
+		
 
 func _get_closest_interactuable():
 	var n_close_interactuables = len(close_interactuables)
