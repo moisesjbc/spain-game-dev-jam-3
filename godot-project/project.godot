@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="godot-project"
 run/main_scene="res://menus/main_menu/main_menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://gameplay/player/player.png"
 
 [autoload]
 
