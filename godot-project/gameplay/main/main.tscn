@@ -6,7 +6,7 @@
 [ext_resource path="res://gameplay/connections/connections.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/environment/walls/walls.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/environment/ghosts_respawn/ghosts_respawn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://menus/game_over_menu/ingame_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://menus/ingame_menu/ingame_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameplay/main/main.gd" type="Script" id=10]
 [ext_resource path="res://gameplay/environment/interactuables_respawn/interactuables_respawn.tscn" type="PackedScene" id=12]
 

@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-project"
-run/main_scene="res://gameplay/main/main.tscn"
+run/main_scene="res://menus/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Types="*res://gameplay/globals/types.gd"
+Utils="*res://gameplay/globals/utils.gd"
 
 [display]
 

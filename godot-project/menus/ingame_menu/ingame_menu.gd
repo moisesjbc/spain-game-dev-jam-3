@@ -13,7 +13,16 @@ func display(type):
 		$panel/margin_container/vbox_container/restart_button.text = 'Empezar de nuevo'
 
 
-func _on_restart_button_pressed():
+func unpause():
 	get_tree().paused = false
 	visible = false
-	var _unused = get_tree().change_scene("res://gameplay/main/main.tscn")
+
+
+func _on_restart_button_pressed():
+	unpause()
+	Utils.change_scene("res://gameplay/main/main.tscn")
+
+
+func _on_return_to_main_menu_button_pressed():
+	unpause()
+	Utils.change_scene("res://menus/main_menu/main_menu.tscn")
