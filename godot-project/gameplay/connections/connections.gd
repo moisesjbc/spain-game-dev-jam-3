@@ -9,6 +9,12 @@ signal connection_removed
 
 
 func add_connection(building_0, building_1):
+	for _connection in _connections:
+		if (_connection[0] == building_0 and _connection[1] == building_1) or \
+			(_connection[0] == building_1 and _connection[1] == building_0):
+			# Connection is already made. Don't duplicate it.
+			return
+	
 	var new_connection = [building_0, building_1, generate_intermediate_points(building_0, building_1)]
 	_connections.append(new_connection)
 	
@@ -144,6 +150,7 @@ func _compute_energy():
 					print('consumer ', consumer.name, ' -> ', energies[consumer.name])
 					consumer.set_energy(energies[consumer.name])
 
+
 func _calculate_energy_for_consumer(available_energy, n_consumers):
 	if available_energy >= n_consumers:
 		return (available_energy / n_consumers)
@@ -188,3 +195,15 @@ func _on_disconnect_button_pressed():
 	var point_and_distance = get_closest_point_and_distance(player.global_position)
 	if point_and_distance:
 		disconnect_connection(point_and_distance[2])
+		
+		
+func clear_connections():
+	for generator in _generators:
+		generator.consumed_energy = 0
+		
+	for consumer in _consumers:
+		consumer.set_energy(0)
+
+	_connections = []
+	_generators = []
+	_consumers = []

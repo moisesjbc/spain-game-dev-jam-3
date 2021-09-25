@@ -3,6 +3,7 @@ extends Node
 
 var tutorial
 var cable_roll
+var connections
 
 
 func on_init(info_text: RichTextLabel):
@@ -10,6 +11,9 @@ func on_init(info_text: RichTextLabel):
 	cable_roll = tutorial.get_node('main').get_node('player').get_node('cable_roll')
 	cable_roll.stop_throwing()
 	cable_roll.connect('connection_started', self, '_on_connection_started')
+	
+	connections = tutorial.get_node('main').get_node('connections')
+	connections.clear_connections()
 
 
 func _on_connection_started(origin):
