@@ -10,5 +10,5 @@ func on_init(info_text: RichTextLabel):
 
 
 func _on_target_zone_body_entered(body):
-	if tutorial:
+	if tutorial and body.name == 'player':
 		tutorial.next_state()
