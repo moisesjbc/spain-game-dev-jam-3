@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://gameplay/main/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/tutorial/tutorial.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://gameplay/tutorial/states/music.gd" type="Script" id=18]
 [ext_resource path="res://gameplay/tutorial/states/playing_music.gd" type="Script" id=19]
 [ext_resource path="res://gameplay/tutorial/end.gd" type="Script" id=20]
+[ext_resource path="res://gameplay/tutorial/states/disconnect.gd" type="Script" id=21]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
@@ -138,6 +139,9 @@ script = ExtResource( 16 )
 
 [node name="most_energy" type="Node" parent="states"]
 script = ExtResource( 17 )
+
+[node name="disconnect" type="Node" parent="states"]
+script = ExtResource( 21 )
 
 [node name="music" type="Node" parent="states"]
 script = ExtResource( 18 )

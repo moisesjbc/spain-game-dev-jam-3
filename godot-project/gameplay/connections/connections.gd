@@ -5,6 +5,7 @@ var _generators = []
 var _consumers = []
 var player = null
 signal connection_added
+signal connection_removed
 
 
 func add_connection(building_0, building_1):
@@ -81,7 +82,9 @@ func disconnect_connection(connection):
 	_remove_node_if_not_connected_to_anything(connection[1])
 
 	_compute_energy()
-	
+
+	emit_signal('connection_removed')
+
 
 func _remove_node_if_not_connected_to_anything(node):
 	if not len(_get_connected_consumers(node, [])):
