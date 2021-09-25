@@ -1,7 +1,11 @@
 extends CenterContainer
 
 
-func display(type):
+var type
+
+
+func display(new_type):
+	type = new_type
 	get_tree().paused = true
 	visible = true
 	
@@ -11,6 +15,14 @@ func display(type):
 	elif type == Types.IngameMenu.VICTORY:
 		$panel/margin_container/vbox_container/title_label.text = '¡Victoria!'
 		$panel/margin_container/vbox_container/restart_button.text = 'Empezar de nuevo'
+	else:
+		# Pause
+		$panel/margin_container/vbox_container/title_label.text = 'Juego pausado'
+		
+		if get_tree().get_root().get_node_or_null('main'):
+			$panel/margin_container/vbox_container/restart_button.text = 'Volver al juego'
+		else:
+			$panel/margin_container/vbox_container/restart_button.text = 'Volver al tutorial'
 
 
 func unpause():
@@ -20,7 +32,8 @@ func unpause():
 
 func _on_restart_button_pressed():
 	unpause()
-	Utils.change_scene("res://gameplay/main/main.tscn")
+	if type != Types.IngameMenu.PAUSE:
+		Utils.change_scene("res://gameplay/main/main.tscn")
 
 
 func _on_return_to_main_menu_button_pressed():

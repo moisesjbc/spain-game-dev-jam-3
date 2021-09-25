@@ -1,6 +1,7 @@
 extends Node
 
 enum IngameMenu {
-  GAME_OVER,
-  VICTORY
+	GAME_OVER,
+	VICTORY,
+	PAUSE
 }

@@ -19,6 +19,11 @@ func _on_player_player_died():
 
 func _on_investigation_centre_investigation_completed():
 	$gui/ingame_menu.display(Types.IngameMenu.VICTORY)
+	
+	
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_ESCAPE:
+		$gui/ingame_menu.display(Types.IngameMenu.PAUSE)
 
 
 func _respawn_buildings(building_scene_path, n_buildings):
