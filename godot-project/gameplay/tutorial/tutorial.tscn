@@ -1,11 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://gameplay/main/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/tutorial/tutorial.gd" type="Script" id=2]
 [ext_resource path="res://fonts/ubuntu/Ubuntu-B.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://gameplay/tutorial/states/welcome.gd" type="Script" id=4]
 [ext_resource path="res://gameplay/tutorial/states/movement.gd" type="Script" id=5]
-[ext_resource path="res://gameplay/tutorial/go_to_investigation_centre.gd" type="Script" id=6]
+[ext_resource path="res://gameplay/tutorial/states/go_to_investigation_centre.gd" type="Script" id=6]
+[ext_resource path="res://gameplay/tutorial/states/connection.gd" type="Script" id=7]
+[ext_resource path="res://gameplay/tutorial/states/energy.gd" type="Script" id=8]
+[ext_resource path="res://gameplay/tutorial/states/connection_start.gd" type="Script" id=9]
+[ext_resource path="res://gameplay/tutorial/states/connection_end.gd" type="Script" id=10]
+[ext_resource path="res://gameplay/tutorial/states/investigation_progress.gd" type="Script" id=11]
+[ext_resource path="res://gameplay/tutorial/states/investigation.gd" type="Script" id=12]
+[ext_resource path="res://gameplay/tutorial/states/ghosts.gd" type="Script" id=13]
+[ext_resource path="res://gameplay/tutorial/states/turrets.gd" type="Script" id=14]
+[ext_resource path="res://gameplay/tutorial/states/ghost.gd" type="Script" id=15]
+[ext_resource path="res://gameplay/tutorial/states/turret_and_ghost.gd" type="Script" id=16]
+[ext_resource path="res://gameplay/tutorial/states/most_energy.gd" type="Script" id=17]
+[ext_resource path="res://gameplay/tutorial/states/music.gd" type="Script" id=18]
+[ext_resource path="res://gameplay/tutorial/states/playing_music.gd" type="Script" id=19]
+[ext_resource path="res://gameplay/tutorial/end.gd" type="Script" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
@@ -92,5 +106,48 @@ shape = SubResource( 3 )
 [node name="go_to_investigation_centre" type="Node" parent="states"]
 script = ExtResource( 6 )
 
-[node name="connection" type="Node" parent="states"]
+[node name="investigation_centre" type="Node" parent="states"]
+script = ExtResource( 7 )
+
+[node name="energy" type="Node" parent="states"]
+script = ExtResource( 8 )
+
+[node name="connection_start" type="Node" parent="states"]
+script = ExtResource( 9 )
+
+[node name="connection_end" type="Node" parent="states"]
+script = ExtResource( 10 )
+
+[node name="investigation_progress" type="Node" parent="states"]
+script = ExtResource( 11 )
+
+[node name="investigation" type="Node" parent="states"]
+script = ExtResource( 12 )
+
+[node name="ghosts" type="Node" parent="states"]
+script = ExtResource( 13 )
+
+[node name="turrets" type="Node" parent="states"]
+script = ExtResource( 14 )
+
+[node name="ghost" type="Node" parent="states"]
+script = ExtResource( 15 )
+
+[node name="turret_and_ghost" type="Node" parent="states"]
+script = ExtResource( 16 )
+
+[node name="most_energy" type="Node" parent="states"]
+script = ExtResource( 17 )
+
+[node name="music" type="Node" parent="states"]
+script = ExtResource( 18 )
+
+[node name="playing_music" type="Node" parent="states"]
+script = ExtResource( 19 )
+
+[node name="timer" type="Timer" parent="states/playing_music"]
+
+[node name="end" type="Node" parent="states"]
+script = ExtResource( 20 )
 [connection signal="body_entered" from="states/movement/target_zone" to="states/movement" method="_on_target_zone_body_entered"]
+[connection signal="timeout" from="states/playing_music/timer" to="states/playing_music" method="_on_timer_timeout"]

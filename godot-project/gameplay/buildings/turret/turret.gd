@@ -7,7 +7,6 @@ var min_shoot_charging_timeout = 0.5
 var energy = 0
 var max_energy = 5
 
-
 func _ready():
 	set_energy(0)
 
@@ -44,7 +43,7 @@ func _prepare_shoot():
 func shoot():
 	if len(targets_in_area) > 0:
 		var bullet = bullet_scene.instance()
-		get_tree().get_root().get_node('main').add_child(bullet)
+		get_parent().add_child(bullet)
 		bullet.global_position = global_position
 		bullet.look_at(targets_in_area[0].global_position)
 		

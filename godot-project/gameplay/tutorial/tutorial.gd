@@ -31,3 +31,8 @@ func next_state():
 		set_state(current_state_index + 1)
 	else:
 		Utils.change_scene("res://menus/main_menu/main_menu.tscn")
+
+
+func next_state_on_enter(event):
+	if event is InputEventKey and not event.pressed and event.scancode == KEY_ENTER:
+		next_state()

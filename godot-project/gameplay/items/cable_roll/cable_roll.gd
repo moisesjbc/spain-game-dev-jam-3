@@ -3,6 +3,8 @@ extends KinematicBody2D
 
 var origin = null
 var throwing_cable = false
+signal connection_started
+signal connection_ended
 
 
 func _start():
@@ -13,6 +15,7 @@ func start_throwing(new_origin):
 	origin = new_origin
 	throwing_cable = true
 	set_process(true)
+	emit_signal('connection_started', origin)
 	
 
 func stop_throwing():
@@ -33,5 +36,7 @@ func _draw():
 
 
 func connect_to(target, connections):
+	print('------------------_> HERE')
 	connections.add_connection(origin, target)
+	emit_signal('connection_ended', target)
 	stop_throwing()

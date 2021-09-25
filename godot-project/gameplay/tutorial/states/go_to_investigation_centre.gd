@@ -13,5 +13,5 @@ func on_init(info_text: RichTextLabel):
 
 
 func on_event(event):
-	if event is InputEventKey and player.global_position.distance_to(investigation_centre.global_position) < 400:
+	if event is InputEventKey and player.global_position.distance_to(investigation_centre.global_position) < 350:
 		tutorial.next_state()

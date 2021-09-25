@@ -16,7 +16,6 @@ func _ready():
 	for action in $control/container.get_children():
 		action.menu = self
 		action.building = get_parent()
-		
 
 
 func open(new_player, new_connections):
@@ -27,8 +26,8 @@ func open(new_player, new_connections):
 		action.visible = action.is_available(player, connections)
 		if action.visible:
 			visible = true
-			
-			
+
+
 func reload():
 	open(player, connections)
 

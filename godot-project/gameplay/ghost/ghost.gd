@@ -1,7 +1,17 @@
 extends KinematicBody2D
 
-onready var target = get_tree().get_root().get_node("main/player")
+var target = null
 export (int) var movement_speed = 100
+signal ghost_hit_by_bullet
+
+
+func _ready():
+	var main = get_tree().get_root().get_node_or_null("main")
+	if not main:
+		main = get_tree().get_root().get_node("tutorial/main")
+
+	target = main.get_node("player")
+
 
 
 func _physics_process(delta):

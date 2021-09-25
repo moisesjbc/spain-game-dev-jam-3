@@ -4,12 +4,12 @@ var _connections = []
 var _generators = []
 var _consumers = []
 var player = null
+signal connection_added
 
 
 func add_connection(building_0, building_1):
-	_connections.append([building_0, building_1, generate_intermediate_points(building_0, building_1)])
-	
-	generate_intermediate_points(building_0, building_1)
+	var new_connection = [building_0, building_1, generate_intermediate_points(building_0, building_1)]
+	_connections.append(new_connection)
 	
 	if 'generators' in building_0.get_groups() and _generators.find(building_0) < 0:
 		_generators.append(building_0)
@@ -22,6 +22,7 @@ func add_connection(building_0, building_1):
 		_consumers.append(building_1)
 		
 	_compute_energy()
+	emit_signal('connection_added', new_connection)
 	
 
 func get_closest_point_and_distance(ref_position):
