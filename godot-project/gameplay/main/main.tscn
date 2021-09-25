@@ -20,7 +20,7 @@ position = Vector2( 871.969, 437.781 )
 
 [node name="walls" parent="." instance=ExtResource( 7 )]
 
-[node name="phantoms_respawn" parent="." instance=ExtResource( 8 )]
+[node name="ghosts_respawn" parent="." instance=ExtResource( 8 )]
 position = Vector2( -869.018, -988.883 )
 scale = Vector2( 2.6, 4.6 )
 

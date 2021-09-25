@@ -18,5 +18,4 @@ position = Vector2( 82.8408, 534.879 )
 rotation = -1.57671
 
 [node name="cooldown_timer" type="Timer" parent="."]
-autostart = true
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

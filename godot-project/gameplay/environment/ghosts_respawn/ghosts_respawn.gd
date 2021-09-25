@@ -2,6 +2,13 @@ extends Node2D
 
 var ghost_scene = preload("res://gameplay/ghost/ghost.tscn")
 
+
+func _ready():
+	var main = get_tree().get_root().get_node_or_null('main')
+	# If main is not the root node it means that we are in the turorial.
+	if main:
+		$cooldown_timer.start()
+
 	
 func respawn_ghost():
 	var ghost = ghost_scene.instance()
