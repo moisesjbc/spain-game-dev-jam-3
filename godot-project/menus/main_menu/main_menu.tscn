@@ -36,7 +36,7 @@ margin_right = 400.0
 margin_bottom = 161.0
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
-text = "El electricista"
+text = "Tirando cable"
 align = 1
 valign = 1
 
