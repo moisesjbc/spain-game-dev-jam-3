@@ -4,10 +4,10 @@
 [ext_resource path="res://gui/menu_button/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/credits_menu/credits_menu.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -44,12 +44,12 @@ margin_top = 24.0
 margin_right = 900.0
 margin_bottom = 524.0
 rect_min_size = Vector2( 900, 500 )
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="credits_text" type="RichTextLabel" parent="center_container/vbox_container/panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]
 [color=#FFB563]Idea y diseño[/color]
@@ -65,6 +65,9 @@ bbcode_text = "[center]
 [color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
 [color=white]Licencia:  [url=http://creativecommons.org/licenses/by-nc-sa/4.0/]Attribution-NonCommercial-ShareAlike 4.0 International[/url][/color]
 
+[color=#FFB563]SFX[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licensed under [url=http://creativecommons.org/licenses/by-nc-sa/4.0/]Attribution-NonCommercial-ShareAlike 4.0 International[/url][/color]
 
 [color=#FFB563]Fuentes[/color]
 [color=white]Ubuntu font - [url=https://design.ubuntu.com/font/]https://design.ubuntu.com/font/[/url][/color]
@@ -73,8 +76,8 @@ bbcode_text = "[center]
 [color=#FFB563]Software[/color]
 [color=white]Godot engine - [url=https://godotengine.org/]https://godotengine.org/[/url]
 Gimp - [url=https://www.gimp.org/]https://www.gimp.org/[/url]
+sfxr - [url=http://www.drpetter.se/project_sfxr.html]http://www.drpetter.se/project_sfxr.html[/url]
 [/color]
-
 
 [color=#FFB563]Agradecimientos[/color]
 A los organizadores de la Spain Game Devs Jam III - [url=https://itch.io/jam/spain-game-devs-jam-iii]https://itch.io/jam/spain-game-devs-jam-iii[/url]
@@ -97,6 +100,9 @@ Arte
 Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
 Licencia:  Attribution-NonCommercial-ShareAlike 4.0 International
 
+SFX
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licensed under Attribution-NonCommercial-ShareAlike 4.0 International
 
 Fuentes
 Ubuntu font - https://design.ubuntu.com/font/
@@ -105,7 +111,7 @@ Ubuntu font - https://design.ubuntu.com/font/
 Software
 Godot engine - https://godotengine.org/
 Gimp - https://www.gimp.org/
-
+sfxr - http://www.drpetter.se/project_sfxr.html
 
 
 Agradecimientos
