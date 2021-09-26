@@ -63,6 +63,7 @@ func _get_closest_interactuable():
 
 
 func damage():
+	$player_hit.play()
 	hp -= 1
 	if hp <= 0:
 		hp = 0
