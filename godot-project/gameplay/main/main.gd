@@ -5,6 +5,10 @@ export (int) var n_turrets = 4
 
 
 func _ready():
+	# Sometimes randomly after dying and restarting, the game remains paused.
+	# Adding this as a workaround.
+	get_tree().paused = false
+	
 	randomize()
 
 	_respawn_buildings("res://gameplay/buildings/generator/generator.tscn", n_generators)
