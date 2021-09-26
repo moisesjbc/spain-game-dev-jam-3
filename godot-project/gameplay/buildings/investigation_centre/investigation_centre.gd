@@ -30,11 +30,11 @@ func _on_investigation_timer_timeout():
 
 
 func set_energy(new_energy):
-	if energy == 0 and new_energy > 0:
-		$investigation_timer.start()
-	elif energy > 0 and new_energy == 0:
-		$investigation_timer.stop()
-
 	energy = new_energy
+	
+	if energy == 0 and not $investigation_timer.is_stopped():
+		$investigation_timer.stop()
+	elif energy > 0 and $investigation_timer.is_stopped():
+		$investigation_timer.start()
 	
 	$energy_label.set_energy(energy, max_energy)

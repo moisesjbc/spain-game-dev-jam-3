@@ -20,12 +20,12 @@ func add_connection(building_0, building_1):
 	
 	if 'generators' in building_0.get_groups() and _generators.find(building_0) < 0:
 		_generators.append(building_0)
-	elif 'generators' in building_1.get_groups() and _generators.find(building_1) < 0:
+	if 'generators' in building_1.get_groups() and _generators.find(building_1) < 0:
 		_generators.append(building_1)
 		
 	if 'consumers' in building_0.get_groups() and _consumers.find(building_0) < 0:
 		_consumers.append(building_0)
-	elif 'consumers' in building_1.get_groups() and _consumers.find(building_1) < 0:
+	if 'consumers' in building_1.get_groups() and _consumers.find(building_1) < 0:
 		_consumers.append(building_1)
 		
 	_compute_energy()
@@ -146,11 +146,11 @@ func _compute_energy():
 							available_energy -= energy_to_add - (current_consumer.max_energy - energies[current_consumer.name])
 							energies[current_consumer.name] += current_consumer.max_energy - energies[current_consumer.name]
 		
-			print("energies ", energies)
-			for consumer in _consumers:
-				if energies.has(consumer.name):
-					print('consumer ', consumer.name, ' -> ', energies[consumer.name])
-					consumer.set_energy(energies[consumer.name])
+	for consumer in _consumers:
+		if energies.has(consumer.name):
+			consumer.set_energy(energies[consumer.name])
+		else:
+			consumer.set_energy(0)
 
 
 func _calculate_energy_for_consumer(available_energy, n_consumers):
@@ -180,7 +180,7 @@ func _get_connected_nodes(node, visited_nodes, condition_predicate):
 			if condition_predicate == null or call(condition_predicate, connection[0]):
 				connected_nodes = connected_nodes + [connection[0]]
 			connected_nodes = connected_nodes + _get_connected_nodes(connection[0], visited_nodes + [connection[0]], condition_predicate)
-		
+
 	return connected_nodes
 
 
