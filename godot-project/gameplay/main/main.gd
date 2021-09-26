@@ -5,6 +5,8 @@ export (int) var n_turrets = 4
 
 
 func _ready():
+	randomize()
+
 	_respawn_buildings("res://gameplay/buildings/generator/generator.tscn", n_generators)
 	_respawn_buildings("res://gameplay/buildings/turret/turret.tscn", n_turrets)
 	_respawn_buildings("res://gameplay/buildings/investigation_centre/investigation_centre.tscn", 1)
