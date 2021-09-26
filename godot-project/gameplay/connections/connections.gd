@@ -30,6 +30,7 @@ func add_connection(building_0, building_1):
 		
 	_compute_energy()
 	emit_signal('connection_added', new_connection)
+	$connection_added.play()
 	
 
 func get_closest_point_and_distance(ref_position):
@@ -90,6 +91,7 @@ func disconnect_connection(connection):
 	_compute_energy()
 
 	emit_signal('connection_removed')
+	$connection_removed.play()
 
 
 func _remove_node_if_not_connected_to_anything(node):

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/connection_added.wav-6823db06edf3841f3a1b70a5b9fd476f.sample"
+
+[deps]
+
+source_file="res://gameplay/connections/connection_added.wav"
+dest_files=[ "res://.import/connection_added.wav-6823db06edf3841f3a1b70a5b9fd476f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
