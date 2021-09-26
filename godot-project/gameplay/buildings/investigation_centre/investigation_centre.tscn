@@ -38,16 +38,6 @@ texture = ExtResource( 1 )
 position = Vector2( 1.25989, 0 )
 shape = SubResource( 1 )
 
-[node name="label" type="Label" parent="."]
-margin_left = -32.0
-margin_top = -53.0
-margin_right = 32.0
-margin_bottom = -39.0
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="investigation_timer" type="Timer" parent="." groups=[
 "interactuables",
 ]]
