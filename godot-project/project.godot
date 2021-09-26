@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Tirando cable v1.0"
+config/name="Tirando cable v1.0.0"
 run/main_scene="res://menus/main_menu/main_menu.tscn"
 config/icon="res://gameplay/player/player.png"
 
