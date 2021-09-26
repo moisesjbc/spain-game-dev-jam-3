@@ -2,7 +2,7 @@ extends Node2D
 
 var targets_in_area = []
 var bullet_scene = preload("res://gameplay/items/bullet/bullet.tscn")
-var max_shoot_charging_timeout = 2.0
+var timeout_added_per_missing_energy_unit = 0.1
 var min_shoot_charging_timeout = 0.5
 var energy = 0
 var max_energy = 5
@@ -33,8 +33,12 @@ func _physics_process(_delta):
 		$head.look_at(targets_in_area[0].global_position)
 
 
+func _get_timeout_time():
+	return min_shoot_charging_timeout + (max_energy - energy) * timeout_added_per_missing_energy_unit
+
+
 func _prepare_shoot():
-	var shoot_charging_timeout = min_shoot_charging_timeout + (1.0 - (energy / max_energy)) * (max_shoot_charging_timeout - min_shoot_charging_timeout)
+	var shoot_charging_timeout = _get_timeout_time()
 	
 	$head.look_at(targets_in_area[0].global_position)
 	$shoot_charging_timer.start(shoot_charging_timeout)

@@ -11,7 +11,7 @@ var max_investigation_points_per_second = 2.0
 var min_investigation_points_per_second = 0.5
 
 var energy = 0
-var max_energy = 3
+var max_energy = 5
 
 
 func _ready():
