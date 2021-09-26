@@ -16,7 +16,6 @@ var max_energy = 3
 
 func _ready():
 	set_energy(0)
-	_update_label()
 
 
 func _on_investigation_timer_timeout():
@@ -28,12 +27,6 @@ func _on_investigation_timer_timeout():
 		emit_signal('investigation_completed')
 
 	emit_signal('investigation_points_updated', current_investigation_points)
-
-	_update_label()
-
-
-func _update_label():
-	$label.text = str(current_investigation_points) + ' / ' + str(target_investigation_points)
 
 
 func set_energy(new_energy):
