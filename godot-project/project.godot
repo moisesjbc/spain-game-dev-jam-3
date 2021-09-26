@@ -21,8 +21,9 @@ config/icon="res://gameplay/player/player.png"
 
 [autoload]
 
-Types="*res://gameplay/globals/types.gd"
-Utils="*res://gameplay/globals/utils.gd"
+Types="*res://globals/types.gd"
+Utils="*res://globals/utils.gd"
+Audio="*res://globals/audio/audio.tscn"
 
 [display]
 
