@@ -14,7 +14,7 @@ func _ready():
 func _on_influence_area_body_entered(body):
 	if 'ghosts' in body.get_groups():
 		targets_in_area.append(body)
-		if energy > 0.2 and len(targets_in_area) == 1:
+		if energy > 0 and len(targets_in_area) == 1:
 			_prepare_shoot()
 
 
@@ -24,12 +24,12 @@ func _on_influence_area_body_exited(body):
 		targets_in_area.remove(target_index)
 		if target_index == 0:
 			$shoot_charging_timer.stop()
-			if energy > 0.2 and len(targets_in_area) > 0:
+			if energy > 0 and len(targets_in_area) > 0:
 				_prepare_shoot()
 
 
 func _physics_process(_delta):
-	if energy > 0.2 and len(targets_in_area) > 0:
+	if energy > 0 and len(targets_in_area) > 0:
 		$head.look_at(targets_in_area[0].global_position)
 
 
@@ -53,7 +53,7 @@ func shoot():
 		bullet.look_at(targets_in_area[0].global_position)
 		
 		targets_in_area.remove(0)
-		if energy > 0.2 and len(targets_in_area) > 0:
+		if energy > 0 and len(targets_in_area) > 0:
 			_prepare_shoot()
 
 
@@ -63,8 +63,8 @@ func _on_shoot_charging_timer_timeout():
 
 func set_energy(new_energy):
 	energy = new_energy
-	if energy < 0.2:
+	if energy == 0:
 		$shoot_charging_timer.stop()
-	if energy > 0.2 and $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
+	if energy > 0 and $shoot_charging_timer.is_stopped() and len(targets_in_area) > 0:
 		_prepare_shoot()
 	$energy_label.set_energy(energy, max_energy)
