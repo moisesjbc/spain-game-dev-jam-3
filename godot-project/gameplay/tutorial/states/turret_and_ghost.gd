@@ -8,7 +8,7 @@ var player
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]Manten al fantasma cerca de la torreta (¡sin tocarlo!) hasta que la torreta se encargue de él[/center]'
+	info_text.set_text('Manten al fantasma cerca de la torreta (¡sin tocarlo!) hasta que la torreta se encargue de él.')
 	ghost = tutorial.get_node('main').get_node('ghost')
 	player = tutorial.get_node('main').get_node('player')
 	ghost.connect('ghost_hit_by_bullet', self, '_ghost_hit_by_bullet')

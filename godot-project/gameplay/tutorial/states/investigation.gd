@@ -4,7 +4,7 @@ var tutorial
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]¿Qué investigación, te preguntas?\nPulsa [ENTER] para continuar[/center]'
+	info_text.set_text('¿Qué investigación, te preguntas?\nPulsa [ENTER] para continuar.')
 
 
 func on_event(event):

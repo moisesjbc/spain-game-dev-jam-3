@@ -7,7 +7,7 @@ var investigation_centre
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]¡Perfecto! Ahora busca algo que parece un panel solar (recuerda, no voy a por el premio de Arte) y pulsa en el botón para conectarlo[/center]'
+	info_text.set_text('¡Perfecto! Ahora busca algo que parece un panel solar (recuerda, no voy a por el premio de arte) y pulsa en el botón para conectarlo.')
 	cable_roll = tutorial.get_node('main').get_node('player').get_node('cable_roll')
 	investigation_centre = tutorial.get_node('main').get_node('investigation_centre')
 	cable_roll.connect('connection_ended', self, '_on_connection_ended')

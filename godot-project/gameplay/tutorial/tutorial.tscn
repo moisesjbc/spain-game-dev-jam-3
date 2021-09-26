@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://gameplay/main/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/tutorial/tutorial.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://gameplay/tutorial/end.gd" type="Script" id=20]
 [ext_resource path="res://gameplay/tutorial/states/disconnect.gd" type="Script" id=21]
 [ext_resource path="res://gameplay/tutorial/states/cancel_cable.gd" type="Script" id=22]
+[ext_resource path="res://gameplay/tutorial/info_text.gd" type="Script" id=23]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.188235, 0.341176, 0.537255, 1 )
@@ -51,9 +52,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -400.0
-margin_top = -85.0
+margin_top = -110.0
 margin_right = 400.0
-margin_bottom = -50.0
+margin_bottom = -10.0
 rect_min_size = Vector2( 800, 75 )
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
@@ -70,14 +71,15 @@ __meta__ = {
 
 [node name="info_text" type="RichTextLabel" parent="canvas/info_panel/CenterContainer"]
 margin_left = 24.0
-margin_top = 25.0
+margin_top = 38.0
 margin_right = 774.0
-margin_bottom = 49.0
+margin_bottom = 62.0
 rect_min_size = Vector2( 750, 20 )
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 fit_content_height = true
+script = ExtResource( 23 )
 
 [node name="states" type="Node" parent="."]
 

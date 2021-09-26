@@ -5,7 +5,7 @@ var tutorial
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]Pulsa las teclas a, w, d y s para moverte por el mapa. Ve al recuadro amarillo para continuar.[/center]'
+	info_text.set_text('Pulsa las teclas a, w, d y s o las flechas para moverte por el mapa.\nVe al recuadro amarillo para continuar.')
 	$target_zone.visible = true
 
 

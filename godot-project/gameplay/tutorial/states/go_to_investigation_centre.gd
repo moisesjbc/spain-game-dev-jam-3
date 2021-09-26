@@ -7,7 +7,7 @@ var player
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]¡Muy bien! Ahora busca por el mapa un recuadro naranja[/center]'
+	info_text.set_text('¡Muy bien! Ahora busca por el mapa un recuadro naranja.')
 	investigation_centre = tutorial.get_node('main').get_node('investigation_centre')
 	player = tutorial.get_node('main').get_node('player')
 

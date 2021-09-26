@@ -6,7 +6,7 @@ var connections
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]Pero antes de que los veas... quizás te interese buscar una torreta y conectarla a la red[/center]'
+	info_text.set_text('Pero antes de que los veas... quizás te interese buscar una torreta y conectarla a la red.\nLa energía se repartirá entre todos los nodos.')
 	connections = tutorial.get_node('main').get_node('connections')
 	connections.connect('connection_added', self, '_on_connection_added')
 

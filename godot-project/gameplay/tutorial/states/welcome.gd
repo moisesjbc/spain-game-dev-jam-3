@@ -5,7 +5,7 @@ var tutorial
 
 
 func on_init(info_text: RichTextLabel):
-	info_text.bbcode_text = '[center]¡Bienvenido a "Tirando cable"![/center]\n[center]Pulsa cualquier tecla para continuar[/center]'
+	info_text.set_text('¡Bienvenido a "Tirando cable"!\nPulsa cualquier tecla para continuar.')
 
 
 func on_event(event):
