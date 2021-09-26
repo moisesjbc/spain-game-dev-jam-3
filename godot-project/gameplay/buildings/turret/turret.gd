@@ -42,6 +42,7 @@ func _prepare_shoot():
 
 func shoot():
 	if len(targets_in_area) > 0:
+		$turret_shot.play()
 		var bullet = bullet_scene.instance()
 		get_parent().add_child(bullet)
 		bullet.global_position = global_position
