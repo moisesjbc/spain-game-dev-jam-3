@@ -30,7 +30,7 @@ func _on_investigation_centre_investigation_completed():
 	
 	
 func _input(event):
-	if event is InputEventKey and event.scancode == KEY_ESCAPE:
+	if event is InputEventKey and not event.pressed and event.scancode == KEY_ESCAPE and not $gui/ingame_menu.visible:
 		$gui/ingame_menu.display(Types.IngameMenu.PAUSE)
 
 

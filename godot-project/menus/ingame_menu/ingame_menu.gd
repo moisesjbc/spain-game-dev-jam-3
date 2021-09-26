@@ -39,3 +39,11 @@ func _on_restart_button_pressed():
 func _on_return_to_main_menu_button_pressed():
 	unpause()
 	Utils.change_scene("res://menus/main_menu/main_menu.tscn")
+
+
+func _input(event):
+	if visible == true and type == Types.IngameMenu.PAUSE and event is InputEventKey and not event.pressed and event.scancode == KEY_ESCAPE:
+		unpause()
+		
+		# Prevent the event from opening the pause menu again.
+		get_tree().set_input_as_handled()
