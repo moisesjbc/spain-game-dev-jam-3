@@ -34,4 +34,4 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="building_menu" parent="." instance=ExtResource( 3 )]
-position = Vector2( -27.7187, -82.4069 )
+position = Vector2( -32.4809, -31.61 )

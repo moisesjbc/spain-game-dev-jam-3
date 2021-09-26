@@ -7,12 +7,9 @@ var connections
 
 
 func _ready():
-	var new_position = get_parent().global_position
-	new_position.y -= 75
-	set_as_toplevel(true)
-	global_position = new_position
 	visible = false
 	building = get_parent()
+	
 	for action in $control/container.get_children():
 		action.menu = self
 		action.building = get_parent()

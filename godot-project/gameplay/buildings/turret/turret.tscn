@@ -39,7 +39,7 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="building_menu" parent="." instance=ExtResource( 3 )]
-position = Vector2( -26.2204, -77.5374 )
+position = Vector2( -31.4645, 45.3237 )
 
 [node name="shoot_charging_timer" type="Timer" parent="."]
 one_shot = true
